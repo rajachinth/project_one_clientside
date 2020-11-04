@@ -14,9 +14,8 @@ import { RootStoreState } from 'src/app/storemodule/redux/corestore';
   templateUrl: './oshop-cart.component.html',
   styleUrls: ['./oshop-cart.component.css']
 })
-export class OshopCartComponent
-{
-  
+export class OshopCartComponent {
+
   @select(element => element.cartstate) $cartState;
   @select(value => value.logstate.show) $logState: Observable<object>;
   @select(value => value.logstate.addItemsToCart) $addItemsToCart: Observable<object>;

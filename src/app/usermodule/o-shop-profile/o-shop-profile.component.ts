@@ -21,16 +21,15 @@ export class OShopProfileComponent implements OnInit {
   $errorStatus: Observable<string>;
   showlabel: Boolean;
 
-  showdata:Boolean;
+  showdata: Boolean;
   constructor(private shopserver: ShoppingcartService,
-              private routeState:ActivatedRoute,
+              private routeState: ActivatedRoute,
               private route: Router) {}
   ngOnInit() {
-    if(this.routeState.snapshot.queryParamMap.has('updateSuccess'))
-    {
-      this.showlabel=true;
+    if (this.routeState.snapshot.queryParamMap.has('updateSuccess')) {
+      this.showlabel = true;
     }
-    this.showdata=false;
+    this.showdata = false;
     this.$showProgress = of(true);
     this.$errorStatus = of(null);
     this.shopserver.getUserDetailsService()
@@ -47,12 +46,12 @@ export class OShopProfileComponent implements OnInit {
         },
         () => {
           this.$showProgress = of(false);
-          this.showdata=true
+          this.showdata = true;
         });
   }
   editDetails() {
-    this.route.navigate(['/profile/edit'], 
-      {queryParams: {name: this.decodedData.name,address: this.decodedData.address,email: this.decodedData.email,
-        mobile: this.decodedData.mobile,pincode: this.decodedData.pincode}});
+    this.route.navigate(['/profile/edit'],
+      {queryParams: {name: this.decodedData.name, address: this.decodedData.address, email: this.decodedData.email,
+        mobile: this.decodedData.mobile, pincode: this.decodedData.pincode}});
   }
 }

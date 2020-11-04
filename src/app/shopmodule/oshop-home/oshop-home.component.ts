@@ -66,7 +66,7 @@ export class OshopHomeComponent implements OnInit {
        this.subsciption = this.productService
                             .getDropDownValues()
                             .subscribe(v => {this.categoryList = v;
-                              // console.log(this.categoryList); 
+                              // console.log(this.categoryList);
                             },
                             (error) => {
                               this.$showSpinnerCategory = of(false);

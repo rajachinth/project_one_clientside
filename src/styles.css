@@ -82,7 +82,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-weight: bold;
 }
 
-@media(min-width:461px)
+@media(min-width:501px)
 {
     .allow-screen
     {
@@ -94,7 +94,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
 }
 
-@media(max-width:460px)
+@media(max-width:360px)
+{
+    .allow-screen
+    {
+        display: none!important;
+    }
+    .block-screen
+    {
+        display: initial!important;
+    }
+}
+
+@media(max-width:500px)
 {
     .allow-screen
     {

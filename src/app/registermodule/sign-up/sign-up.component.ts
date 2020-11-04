@@ -16,8 +16,7 @@ import { RootStoreState } from 'src/app/storemodule/redux/corestore';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
-export class SignUpComponent
-{
+export class SignUpComponent {
   @select(value => value.logstate.show) $logState: Observable<object>;
   $showProgress: Observable<boolean>;
   $showData: Observable<boolean>;
@@ -25,7 +24,7 @@ export class SignUpComponent
   $errorStatus: Observable<string>;
 
   @select(value => value.signupstate) $signupObject: Observable<object>;
-  
+
   constructor(private userService: UserService,
               private authService: AuthserviceService,
               private ngRedux: NgRedux<RootStoreState>,
@@ -71,7 +70,7 @@ export class SignUpComponent
     // console.log(signUpData);
     this.$showProgress = of(true);
     this.$showData = of(false);
-    this.$errorStatus=of(null);
+    this.$errorStatus = of(null);
     this.userService.userSignupService(signUpData)
         .pipe(take(1))
         .subscribe((responseData: any) => {
@@ -94,9 +93,8 @@ export class SignUpComponent
           this.$showData = of(true);
         });
   }
-  formReset()
-  {
+  formReset() {
     this.signupform.reset();
-    this.$errorStatus=of(null);
+    this.$errorStatus = of(null);
   }
 }

@@ -50,7 +50,7 @@ export class OshopCartSummaryComponent implements OnInit {
                      });
   }
   confirmOrder(CustomerDetails, orderDetails) {
-    this.$errorCheck=of(false);
+    this.$errorCheck = of(false);
     const orderID = uuidv4();
     const orderSummary = this.orderSummary;
     this.orderService.addOrderCart(orderID, CustomerDetails, orderDetails, orderSummary)

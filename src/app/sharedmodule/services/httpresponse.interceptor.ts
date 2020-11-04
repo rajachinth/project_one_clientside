@@ -43,9 +43,9 @@ export class HttpResponseInterceptor implements HttpInterceptor {
                         this.ngRedux.dispatch({type: ADDSECRET, data: {token: reponseToken}});
                     }},
                     (error) => {
-                      //  console.log(error); 
+                      //  console.log(error);
                       },
-                    () => { 
+                    () => {
                       // console.log('HTTP response completed successfully');
                      }),
                     finalize(() => {

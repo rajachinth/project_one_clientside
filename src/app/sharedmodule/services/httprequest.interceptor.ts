@@ -17,22 +17,18 @@ export class HttpRequestInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // console.log('request initiated');
         // console.log(request.url);
-        if (request.url.match(/\/addItem/))
-        {
+        if (request.url.match(/\/addItem/)) {
             // console.log('shopping request initiated');
             this.ngRedux.dispatch({type: SHOPPING_SHOW_LOAD_ADD_TO_CART});
         }
-        if (request.url.match(/\/deleteItem/))
-        {
+        if (request.url.match(/\/deleteItem/)) {
             // console.log('shopping request initiated');
             this.ngRedux.dispatch({type: SHOPPING_SHOW_LOAD_DEL_FROM_CART});
         }
-        if (request.url.match(/\/summary/))
-        {
+        if (request.url.match(/\/summary/)) {
             // console.log('shopping request initiated');
             this.ngRedux.dispatch({type: SHOPPING_SHOW_LOAD_MOV_CART});
-        }
-        else {
+        } else {
             this.ngRedux.dispatch({type: SHOW_LOAD});
         }
 
@@ -43,8 +39,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         // }
         this.accessToken = localStorage.getItem('accessToken');
         // console.log(this.accessToken)
-        if(this.accessToken)
-        {
+        if (this.accessToken) {
         request = request.clone({setHeaders: {accessToken: this.accessToken}});
         }
         return next.handle(request);

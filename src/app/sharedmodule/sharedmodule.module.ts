@@ -26,6 +26,7 @@ import { OshopTemplateOneComponent } from './common-components/oshop-template-on
 import { OshopTemplateTwoComponent } from './common-components/oshop-template-two/oshop-template-two.component';
 import { IonicModule } from '@ionic/angular';
 
+
 @NgModule({
   declarations: [
     AccessdeniedRouteComponent,
@@ -45,7 +46,7 @@ import { IonicModule } from '@ionic/angular';
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    IonicModule.forRoot(),
+    IonicModule .forRoot(),
   ],
   providers: [
     UserService,

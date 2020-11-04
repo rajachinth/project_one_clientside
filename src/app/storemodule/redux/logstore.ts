@@ -4,8 +4,8 @@ export interface LogState {
     userAuthToken: String;
     show: Boolean;
     addItemsToCart: Boolean;
-    deleteItemsFromCart :Boolean,
-    moveCart: Boolean,
+    deleteItemsFromCart: Boolean;
+    moveCart: Boolean;
 }
 export const LogStateInitState: LogState = {userAuthToken: 'secretkeyToken',
                                             show: false,

@@ -7,9 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class  UserService {
   constructor(private http: HttpClient) { }
 
-  getDefaultUserService()
-  {
-    return this.http.get('https://vinayakatradergroup.herokuapp.com/authentication/login/defaultUser',{responseType: 'text'});
+  getDefaultUserService() {
+    return this.http.get('https://vinayakatradergroup.herokuapp.com/authentication/login/defaultUser', {responseType: 'text'});
   }
 
   userSignupService(signupData) {
@@ -19,8 +18,7 @@ export class  UserService {
   userPostService(loginData) {
     return this.http.post('https://vinayakatradergroup.herokuapp.com/authentication/login', loginData, {responseType: 'text'});
   }
-  userQueriesService(queryData)
-  {
+  userQueriesService(queryData) {
     return this.http.post('https://vinayakatradergroup.herokuapp.com/userqueries', queryData, {responseType: 'text'});
   }
 }

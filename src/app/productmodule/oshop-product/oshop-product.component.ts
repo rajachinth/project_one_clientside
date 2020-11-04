@@ -19,7 +19,7 @@ import { RootStoreState } from 'src/app/storemodule/redux/corestore';
 })
 export class OshopDialogBox {
 
-  $dialogError:Observable<any>;
+  $dialogError: Observable<any>;
   defaultToken: string;
   @select(value => value.logstate.show) $logState: Observable<object>;
 
@@ -80,7 +80,7 @@ export class OshopProductComponent implements OnInit {
 
   isUserLogged: Boolean;
   defaultToken: string;
-  
+
 
   constructor(private routestate: ActivatedRoute,
               private shoppingCartService: ShoppingcartService,
@@ -95,7 +95,7 @@ export class OshopProductComponent implements OnInit {
     this.productID = this.routestate.snapshot.paramMap.get('productID');
     this.productService
             .getProductID_Details(this.productID)
-            .subscribe( data => { this.productDetails = data[0]; 
+            .subscribe( data => { this.productDetails = data[0];
               // console.log(this.productDetails);
             },
             (error) => {
@@ -172,12 +172,10 @@ export class OshopProductComponent implements OnInit {
     this.yesProductVarient = false;
   }
   isQuantitySelected() {
-    if (this.productQuantity)
-    {
+    if (this.productQuantity) {
       this.noVarientSelected = false;
       this.checkLoginStatus();
-    } else
-    {
+    } else {
       this.noVarientSelected = true;
     }
   }
@@ -198,15 +196,14 @@ export class OshopProductComponent implements OnInit {
 
   checkLoginStatus() {
     // console.log(this.isUserLogged);
-    if (!this.isUserLogged) { this.openDialog(); }
-    else { this.addToCart(); }
+    if (!this.isUserLogged) { this.openDialog(); } else { this.addToCart(); }
   }
 
   addToCart() {
   this.shoppingCartService.addCartItems(this.dataObj)
                             .subscribe((v) => {},
                             (error) => {
-                              // console.log(error); 
+                              // console.log(error);
                             },
                             () => {
                               this.ngRedux.dispatch({type: ADDCART, data: this.dataObj});
@@ -217,7 +214,7 @@ export class OshopProductComponent implements OnInit {
     this.shoppingCartService.deleteCartItems(this.dataObj)
                             .subscribe((v) => {},
                                                 (error) => {
-                                                  // console.log(error); 
+                                                  // console.log(error);
                                                 },
                                                 () => {
                                                   this.ngRedux.dispatch({type: DELETECART, data: this.dataObj});

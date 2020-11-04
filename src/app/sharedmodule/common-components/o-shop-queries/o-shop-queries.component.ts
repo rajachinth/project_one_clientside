@@ -63,8 +63,8 @@ export class OShopQueriesComponent {
     this.products = [];
     this.isDiasble = false;
     if (event.target.value == 'Oils') { this.products = [].concat(this.oils); }
-    if (event.target.value == 'Seeds') { this.products=[].concat(this.seeds); }
-    if (event.target.value == 'Seed Powders') { this.products=[].concat(this.seedPowder); }
+    if (event.target.value == 'Seeds') { this.products = [].concat(this.seeds); }
+    if (event.target.value == 'Seed Powders') { this.products = [].concat(this.seedPowder); }
   }
 
   submitQuery(queryData) {

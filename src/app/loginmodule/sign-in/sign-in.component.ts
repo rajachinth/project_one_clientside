@@ -16,11 +16,10 @@ import { RootStoreState } from 'src/app/storemodule/redux/corestore';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent implements OnInit,OnDestroy
-{
+export class SignInComponent implements OnInit, OnDestroy {
 
-  show:Boolean=false;
-  $showLabel:Observable<Boolean>;
+  show: Boolean = false;
+  $showLabel: Observable<Boolean>;
   @select(value => value.logstate.show) $logState: Observable<object>;
   @select(value => value.loginstate.username) $username: Observable<object>;
   $errorStatus: Observable<String>;
@@ -29,7 +28,7 @@ export class SignInComponent implements OnInit,OnDestroy
   stateChange = 'animationStateOne';
   cartSummary: any;
 
-  $timeout:Observable<Boolean>;
+  $timeout: Observable<Boolean>;
 
   constructor(private authservice: AuthserviceService,
               private ngRedux: NgRedux<RootStoreState>,
@@ -41,18 +40,16 @@ export class SignInComponent implements OnInit,OnDestroy
   ngOnDestroy(): void {
     // throw new Error('Method not implemented.');
   }
-  ngOnInit()
-  {
-   if(this.routerState.snapshot.queryParamMap.has('shoppingCartURL') ||
-      this.routerState.snapshot.queryParamMap.has('requestbackURL'))
-    {
-      this.$showLabel=of(true);
+  ngOnInit() {
+   if (this.routerState.snapshot.queryParamMap.has('shoppingCartURL') ||
+      this.routerState.snapshot.queryParamMap.has('requestbackURL')) {
+      this.$showLabel = of(true);
     }
   }
 
   logIn(userData) {
     this.$errorCheck = of(false);
-    this.$timeout=of(true);
+    this.$timeout = of(true);
     // console.log(userData);
     this.userService.userPostService(userData)
         .pipe(take(1))
@@ -64,14 +61,14 @@ export class SignInComponent implements OnInit,OnDestroy
         },
         (error) => {
           this.$errorCheck = of(true);
-          this.$timeout=of(false);
+          this.$timeout = of(false);
           if (error instanceof BadRequestError) { return this.$errorStatus = of('uniqueID or password is wrong'); }
           if (error instanceof NotFounfError) { return this.$errorStatus = of('uniqueID or password is wrong'); }
           if (error instanceof InternalServerError) { return this.$errorStatus = of('internal server error'); }
           if (error instanceof ApplicationError) { return this.$errorStatus = of('unknow error'); }
         },
         () => {
-          
+
           this.shoppingService.getCartSummary()
                               .subscribe((data: any) => {
                                 this.cartSummary = {totalCount: data.totalItemsCount, totalCost: data.totalItemsCost};
@@ -88,7 +85,7 @@ export class SignInComponent implements OnInit,OnDestroy
                   });
           this.ngRedux.dispatch({type: USERDATA, data: this.decodedData});
 
-          setTimeout(()=>{
+          setTimeout(() => {
             this.routerState.queryParamMap
             .pipe(take(1))
             .subscribe(queryKey => {
@@ -101,14 +98,13 @@ export class SignInComponent implements OnInit,OnDestroy
                   this.route.navigate(['/home'], {queryParams: {user: this.decodedData.name}});
                 }
               });
-          },5000);
+          }, 5000);
 
           });
       }
 
-  showKey()
-  {
-    this.show=!this.show;
+  showKey() {
+    this.show = !this.show;
   }
 
 }

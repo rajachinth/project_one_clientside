@@ -29,7 +29,7 @@ export class CartorderService {
     this.http.post('https://vinayakatradergroup.herokuapp.com/shoppingCart/clearCart', obj)
              .subscribe((v) => {},
              (error) => {
-              //  console.log(error); 
+              //  console.log(error);
               },
              () => {this.ngRedux.dispatch({type: CLEARCART}); });
   }

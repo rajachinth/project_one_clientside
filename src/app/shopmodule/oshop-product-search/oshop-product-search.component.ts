@@ -15,7 +15,7 @@ import { ProductformService } from 'src/app/sharedmodule/services/productform.se
 })
 export class OshopProductSearchComponent implements OnInit, OnDestroy {
 
-  searchKey:any;
+  searchKey: any;
   $productLists: Observable<Object>;
   productLists: AdminProducts[];
   filterLists: any[];
@@ -29,7 +29,7 @@ export class OshopProductSearchComponent implements OnInit, OnDestroy {
 
   constructor(private routerState: ActivatedRoute,
               private productService: ProductformService) {
-   
+
   }
 
   ngOnInit() {
@@ -38,7 +38,7 @@ export class OshopProductSearchComponent implements OnInit, OnDestroy {
     this.subscription = this.productService.getProductValues()
                           .subscribe((productValue: any) => {
                             // console.log(productValue);
-                            this.filterLists = this.productLists = productValue},
+                            this.filterLists = this.productLists = productValue; },
                           (error) => {
                             this.$errorCheck = of(true);
                             if (error instanceof InternalServerError) { return this.$errorStatusProducts = of('internal server error'); }

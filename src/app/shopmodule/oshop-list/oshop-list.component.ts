@@ -5,11 +5,10 @@ import { Component, Input } from '@angular/core';
   templateUrl: './oshop-list.component.html',
   styleUrls: ['./oshop-list.component.css']
 })
-export class OshopListComponent
-{
+export class OshopListComponent {
 
   @Input('productLists') productLists;
-
+  p:any;
   constructor() {}
-  
+
 }

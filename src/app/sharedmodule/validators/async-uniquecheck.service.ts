@@ -8,8 +8,7 @@ import { ApplicationError, BadRequestError, ConflictError, InternalServerError }
 @Injectable({
   providedIn: 'root'
 })
-export class AsyncUniquecheckService 
-{
+export class AsyncUniquecheckService {
   constructor(private http: HttpClient) { }
   uniqueNameCheck(): AsyncValidatorFn {
     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
