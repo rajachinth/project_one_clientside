@@ -1,0 +1,112 @@
+<div class="allow-screen">
+    <header>
+        <nav class="second-nav navbar navbar-expand-lg">
+            <div class="row-center nav-bar" >
+                <div>
+                    <img src="assets/brandlogo_one.png" alt="brand_logo" class="header-brand-logo" routerLink='/home'>
+                    <ul class="header-navbar-list">
+                        <li id="l1" class="jquery_ID011"><a routerLink="/o-shop">SHOP</a></li>
+                        <li id="l1"><a routerLink="/cart/details"><mat-icon>shopping_cart</mat-icon>
+                            <span *ngIf="$cartState | async as cartState" class="badge badge-pill badge-success">
+                                {{cartState.totalItemsCount}}
+                              </span>
+                        </a></li>
+                        <ng-template #loginButton class="loginbutton">
+                            <li style="display: contents;" >
+                                <a routerLink="/login">LogIn</a>
+                            </li>
+                        </ng-template>
+
+                            <li *ngIf="$loginData | async as loginData" >
+                                <div *ngIf="loginData.isUserLogged; else loginButton" ngbDropdown class="nav-item dropdown">
+                                    <a  ngbDropdownToggle class="nav-link dropdown-toggle" 
+                                        id="navbarDropdown" 
+                                        role="button"
+                                        data-toggle="dropdown" > 
+                                        <mat-icon>account_circle</mat-icon>
+                                        </a>
+                                        <div *ngIf="loginData.isUserLogged" ngbDropdownMenu class="dropdown-menu">
+                                            <a class="dropdown-item" routerLink="/order/user-orders" >Orders</a>
+                                            <a class="dropdown-item" routerLink="/profile" >Profile</a>
+                                            <a class="dropdown-item" routerLink="/home/user-queries">Queries</a>
+                                            <a class="dropdown-item" (click)='logOut()' >LogOut</a>
+                                        </div>
+                                </div>
+                              </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <router-outlet></router-outlet>
+    <footer>
+        <div class="row-center footer-class">
+            <div class="footer-list-one">
+                <ul class="footer-content">
+                    <li><a (click)="scroll()" routerLink="/home/about-us">About Us</a></li>
+                    <li><a (click)="scroll()" routerLink="/home">Home</a></li>
+                    <li><a (click)="scroll()" routerLink="/register">Register</a></li>
+                    <li><a (click)="scroll()" routerLink="/login">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-list-two">   
+                <ul class="footer-content">
+                    <li><a href="https://mail.google.com/" target="_blank"><ion-icon class="mail" name="mail-outline"></ion-icon></a></li> 
+                    <li><a href="https://www.facebook.com/" target="_blank"><ion-icon class="facebook" name="logo-facebook"></ion-icon></a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank"><ion-icon class="instagram" name="logo-instagram"></ion-icon></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="quick_links">
+            <p>quick links</p>
+            <ul>
+                <div class="quicklinks_li" style="width: 50%;">
+                    <li><a (click)="scroll()" routerLink="/login" >User login</a></li>
+                    <li><a (click)="scroll()" routerLink="/register" >User register</a></li>
+                    <li><a (click)="scroll()" routerLink="/cart/details" >Shop cart</a></li>
+                    <li><a (click)="scroll()" routerLink="/o-shop" >Store</a></li>
+                    <li><a (click)="scroll()" routerLink="/home" >Home</a></li>
+                </div>
+                <div class="quicklinks_li" style="width: 50%;">
+                    <li><a (click)="scroll()" routerLink="/profile" >My profile</a></li>
+                    <li><a (click)="scroll()" routerLink="/cart/details" >My cart</a></li>
+                    <li><a (click)="scroll()" routerLink="/home/user-queries" >My queries</a></li>
+                    <li><a (click)="scroll()" routerLink="/order/user-orders" >My orders</a></li>
+                </div>
+            </ul>
+        </div>
+        <div style="color: white;padding-left:30px;padding-right:30px;padding-bottom: 30px;" class="f1-footer">
+            <div style="text-align: center;">
+                <label>Sri Vinayaka Traders</label>
+                <img style=" width: 20%;
+                            height: 20%;
+                            border-radius: 50%;" 
+                            src="assets/brandlogo_one.png" alt="brand_logo" class="header-brand-logo" routerLink='/home'>
+            </div>
+            <div>
+                <p>Contact us for any queries</p>
+                <p><ion-icon class="contact-icons" name="call-outline"></ion-icon>+91 9000083255</p>
+                <p><ion-icon class="contact-icons" name="mail-outline"></ion-icon>srivinayakatraders@gmail.com</p>
+            </div>
+        </div>
+        <div style="width: 100%; color: white; font-weight: 500;padding-bottom: 20px; text-align: center; display: block;">
+            <p style="font-size: 12px;margin-bottom: 0;">Build Version V.1.0.0</p>
+            <small>Copyright &copy; 2020 Vinayaka Trader Group. All Rights Reserved</small>
+        </div>
+        
+    </footer>
+</div>
+
+<div class="block-screen" style="font-size:16px">
+    <div class="custom-messageOne">
+      <p>Incompatible browser resolution detected<mat-icon style="color: red;margin-left:5px">warning</mat-icon></p>
+      <p>Currently we are working on a responsive design</p> 
+    </div>
+    <div class="custom-messageTwo">
+      <p>use device screen width less than 460px</p>
+      <p style="color: red;">use screen only in protrait mode</p>
+    </div>
+    <div>
+        <img src="assets/mobile_screen_01.png" style="width: 50%;height:50%;margin-left: 25%;">
+    </div>
+  </div>

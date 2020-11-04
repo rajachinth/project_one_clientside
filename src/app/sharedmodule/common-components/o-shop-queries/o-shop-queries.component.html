@@ -1,0 +1,186 @@
+<section>    
+    <div>
+        <div class="section-seven-title" style="width: 90%; margin-left: 5%;" >
+            <p style="background-color: lightgray; padding: 5px; border-radius: 25px;">For any business queries on all the available products, contact us as we 
+                trade on large volumes across all the products
+            </p>    
+            <p style="color: seagreen;">
+                Send us your enquiry form, we will reach you back within 24 hours to solve
+                all query related details.
+            </p>
+            <h2>Submit your query now</h2>
+        </div>
+        <form [formGroup]="queryForm" class="register-form">
+            <div class="block-one">
+                <div class="col-one">
+                    <label>Name</label>
+                </div>
+                <div class="col">
+                        <input  formControlName="username"
+                                placeholder="your name"
+                                type="text">
+                                <div *ngIf="queryForm.get('username').touched && queryForm.get('username').invalid">
+                                    <div class="alert alert-danger" *ngIf="queryForm.get('username').errors.minlength">
+                                        user entered only {{queryForm.get('username').errors.minlength.actualLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="queryForm.get('username').errors.maxlength">
+                                        user should enter only {{queryForm.get('username').errors.maxlength.requiredLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="queryForm.get('username').errors.required"> 
+                                        user should enter this field mandatorily
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="queryForm.get('username').errors.error"> 
+                                        no special characters allowed
+                                    </div>
+                                </div>
+                </div>
+            </div>
+            <div class="block-one">
+                <div class="col-one">
+                    <label>Mobile</label>
+                </div>
+                <div class="col">
+                    <input  formControlName="mobile"
+                            placeholder="your mobile"
+                            type="number">
+                            <div *ngIf="queryForm.get('mobile').touched && queryForm.get('mobile').invalid">
+                                <div class="alert alert-danger" *ngIf="queryForm.get('mobile').errors.minlength">
+                                    user entered only {{queryForm.get('mobile').errors.minlength.actualLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="queryForm.get('mobile').errors.maxlength">
+                                    user should enter only {{queryForm.get('mobile').errors.maxlength.requiredLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="queryForm.get('mobile').errors.required"> 
+                                    user should enter this field mandatorily
+                                </div>
+                            </div>
+
+                </div>
+            </div>
+            <div class="block-one">
+                <div class="col-one">
+                    <label>Pincode</label>
+                </div>
+                <div class="col">
+                        <input  formControlName="pincode"
+                                placeholder="your pincode"
+                                type="number">
+                                <div *ngIf="queryForm.get('pincode').touched && queryForm.get('pincode').invalid">
+                                    <div class="alert alert-danger" *ngIf="queryForm.get('pincode').errors.minlength">
+                                        user entered only {{queryForm.get('pincode').errors.minlength.actualLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="queryForm.get('pincode').errors.maxlength">
+                                        user should enter only {{queryForm.get('pincode').errors.maxlength.requiredLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="queryForm.get('pincode').errors.required"> 
+                                        user should enter this field mandatorily
+                                    </div>
+                                </div>
+                </div>
+            </div>
+            <div class="block-one">
+                <div class="col-one">
+                    <label>Address</label>
+                </div>
+                <div class="col">
+                    <textarea  formControlName="address"
+                                placeholder="mark your current address"
+                                type="text">
+                    </textarea>
+                            <div *ngIf="queryForm.get('address').touched && queryForm.get('address').invalid">
+                                <div class="alert alert-danger" *ngIf="queryForm.get('address').errors.minlength">
+                                    user entered only {{queryForm.get('address').errors.minlength.actualLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="queryForm.get('address').errors.maxlength">
+                                    user should enter only {{queryForm.get('address').errors.maxlength.requiredLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="queryForm.get('address').errors.required"> 
+                                    user should enter this field mandatorily
+                                </div>
+                            </div>
+                </div>
+            </div>
+            <div class="block-one">
+                <div class="col-one">
+                    <label>Category</label>
+                </div>
+                <div class="col">
+                        <select [(ngModel)]="selectedValueCategory" formControlName="category" (change)="valueChange($event)">
+                            <option *ngFor="let data of categories" [value]="data">{{data}}</option>
+                        </select>
+                                <div *ngIf="queryForm.get('category').touched && queryForm.get('category').invalid">
+                                    <div class="alert alert-danger" *ngIf="queryForm.get('category').errors.required"> 
+                                        user should select this field mandatorily
+                                    </div>
+                                </div>
+                </div>
+            </div>
+            <div class="block-one">
+                <div class="col-one">
+                    <label>Product</label>
+                </div>
+                <div class="col">
+                        <select [(ngModel)]="selectedValueProduct" [disabled]="isDiasble" formControlName="product">
+                            <option></option>
+                            <option *ngFor="let data of products" [value]="data">{{data}}</option>
+                        </select>
+                                <div *ngIf="queryForm.get('product').touched && queryForm.get('product').invalid">
+                                    <div class="alert alert-danger" *ngIf="queryForm.get('product').errors.required"> 
+                                        user should select this field mandatorily
+                                    </div>
+                                </div>
+                </div>
+            </div>
+            <div class="block-one">
+                <div class="col-one">
+                    <label>Query</label>
+                </div>
+                <div class="col">
+                    <textarea  formControlName="query"
+                                placeholder="log your query"
+                                type="text">
+                    </textarea>
+                            <div *ngIf="queryForm.get('query').touched && queryForm.get('query').invalid">
+                                <div class="alert alert-danger" *ngIf="queryForm.get('query').errors.minlength">
+                                    user entered only {{queryForm.get('query').errors.minlength.actualLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="queryForm.get('query').errors.maxlength">
+                                    user should enter only {{queryForm.get('query').errors.maxlength.requiredLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="queryForm.get('query').errors.required"> 
+                                    user should enter this field mandatorily
+                                </div>
+                            </div>
+                </div>
+            </div>
+            <div>
+                <div class="col">
+                    <label>&nbsp;</label>
+                </div>
+                <div class="col-three">
+                    <button *ngIf="!($showProgress | async)"
+                            mat-raised-button color="primary"
+                            [disabled]="queryForm.invalid || queryForm.status=='PENDING'" 
+                            (click)="submitQuery(queryForm.value)">Submit</button>
+                    <button *ngIf="!($showProgress | async)"
+                            mat-raised-button color="warn"
+                            style="margin-left: 10px;"
+                            (click)="formReset()">Clear</button>
+                    <div class="loadspinner" *ngIf="($showProgress | async) && queryForm.valid">
+                        <button mat-raised-button color="primary" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status"></span>
+                        </button>
+                    </div>
+                    <div class="custom-error" *ngIf="$errorStatus | async as errorStatus">
+                        {{errorStatus}}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="$showData | async" style="width: 90%; margin-left: 5%; text-align: center;">
+        <p style="text-align: center;">Enquiry form submited successfully <span><mat-icon 
+                style="color: green; font-size: 30px!important;transform: translateY(10px);">check_circle</mat-icon></span></p>
+        <!-- <button><a class="btn" routerLink="/home"><ion-icon name="home-outline"></ion-icon></a></button> -->
+    </div>
+</section>

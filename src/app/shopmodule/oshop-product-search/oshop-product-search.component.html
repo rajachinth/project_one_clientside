@@ -1,0 +1,64 @@
+<section>
+
+    <div *ngIf="$logState | async" class="d-flex justify-content-center" style="padding-top: 50%;">
+        <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <div *ngIf="$errorCheck | async" style="font-weight: 16px; 
+                                            color: red;
+                                            padding-top: 50%;
+                                            display: block;">
+        <p style="text-align: center;">{{$errorStatusProducts | async }} <span><mat-icon style="color: red;">warning</mat-icon></span></p>
+        <p style="text-align: center; color: black;">please refresh the browser</p>
+    </div>
+
+   <div *ngIf="$showData | async" class="search-list">
+        <div *ngIf="(filterLists.length > 0)" style="width: 100%;">
+            <h5>search results :</h5>
+            <div style="width: 90%;margin-left: 5%">
+                <div *ngIf="$showData | async">
+                    <div class="cardList" *ngFor="let item of filterLists | paginate: { itemsPerPage: 4, currentPage: p }">
+                        <div class="card">
+                            <div >
+                                <img [src]="item.imageURL" alt="item.productID" class="card-img-top" 
+                                 style="width:100%;height:150px">
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">{{item.author}}</h6>
+                                <h6 class="card-text">1000ML : {{item.price | currency:'INR'}}</h6>
+                            </div>
+                            <div class="card-footer">
+                                <button id="btn_one" class="btn btn-secondary">View Product</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="position: relative; font-size:15px;text-align:center">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+            </div>   
+        </div>
+
+        <div *ngIf="(filterLists.length == 0)" style="width: 100%; padding-top: 10%;">
+            <h5 style="text-align: center;">sorry, no results found</h5>
+            <div class="formgrouptwo">
+                <button mat-raised-button class="btntwo" 
+                        id="btn_two"
+                        color="primary"
+                        [routerLink]="['/o-shop']">O-SHOP<span>
+                    <mat-icon>store</mat-icon>
+                </span></button>
+                <button mat-raised-button class="btntwo" 
+                        id="btn_two"
+                        color="primary"
+                        [routerLink]="['/login']"
+                        >HOME<span>
+                    <mat-icon>home</mat-icon>
+                </span>
+                </button>
+            </div>
+        </div>
+   </div>
+</section>

@@ -1,0 +1,53 @@
+section
+{
+    height: auto;
+    padding-bottom: 50%;
+}
+.btnone
+{
+    align-items: center;
+    margin-left: 45%;
+    padding-top: 5px;
+}
+
+/*Media Query*/
+
+@media(max-width:1000px)
+{
+    .r1
+    {
+        font-size: 16px;
+    }
+    .card
+    {
+        width: 90%;
+        margin: 0 5%;
+    }
+    form
+    {
+        width: 90%;
+        margin: 5% 5%;
+    }
+    .btnone
+    {
+        margin-left: 0%;
+    }
+
+    .btn
+    {
+        width: 25%;
+        font-size: 16px;
+        margin-left: 37.5%;
+        background-color: teal;
+    }
+    li
+    {
+        padding: 5px !important;
+    }
+    .alert
+    {
+        margin-bottom: 5px;
+        text-align: center;
+        padding: 0;
+    }
+}

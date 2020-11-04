@@ -1,0 +1,147 @@
+<section style="min-height: 100vh;height: auto;padding-bottom: 50%;">
+    <div style="padding-top: 25%;">
+        <div class="section-seven-title" >
+            <h2>edit user details</h2>
+        </div>
+        <form [formGroup]="edituser" class="register-form">
+            <div class="subDIV">
+                <div class="col">
+                    <label>Name</label>
+                </div>
+                <div class="col">
+                        <input  formControlName="username"
+                                placeholder="your name"
+                                [ngModel]="userDetails.name"
+                                type="text">
+                                <div *ngIf="edituser.get('username').touched && edituser.get('username').invalid">
+                                    <div class="alert alert-danger" *ngIf="edituser.get('username').errors.minlength">
+                                        user entered only {{edituser.get('username').errors.minlength.actualLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="edituser.get('username').errors.maxlength">
+                                        user should enter only {{edituser.get('username').errors.maxlength.requiredLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="edituser.get('username').errors.required"> 
+                                        user should enter this field mandatorily
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="edituser.get('username').errors.error"> 
+                                        no special characters allowed
+                                    </div>
+                                </div>
+                </div>
+            </div>
+            <div class="subDIV" >
+                <div class="col">
+                    <label>Email</label>
+                </div>
+                <div class="col">
+                            <input  formControlName="email"
+                                    placeholder="your email"
+                                    [ngModel]="userDetails.email"
+                                    type="text">
+                                    <div *ngIf="edituser.get('email').touched && edituser.get('email').invalid">
+                                        <div class="alert alert-danger" *ngIf="edituser.get('email').errors.required"> 
+                                            user should enter this field mandatorily
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="edituser.get('email').errors.error"> 
+                                            invalid email address
+                                        </div>
+                                    </div>
+                </div>
+            </div>
+            <div class="subDIV">
+                <div class="col">
+                    <label>Mobile</label>
+                </div>
+                <div class="col">
+                    <input  formControlName="mobile"
+                            placeholder="your mobile"
+                            [ngModel]="userDetails.mobile"
+                            type="number">
+                            <div *ngIf="edituser.get('mobile').touched && edituser.get('mobile').invalid">
+                                <div class="alert alert-danger" *ngIf="edituser.get('mobile').errors.minlength">
+                                    user entered only {{edituser.get('mobile').errors.minlength.actualLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="edituser.get('mobile').errors.maxlength">
+                                    user should enter only {{edituser.get('mobile').errors.maxlength.requiredLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="edituser.get('mobile').errors.required"> 
+                                    user should enter this field mandatorily
+                                </div>
+                            </div>
+
+                </div>
+            </div>
+            <div class="subDIV">
+                <div class="col">
+                    <label>Pincode</label>
+                </div>
+                <div class="col">
+                        <input  formControlName="pincode"
+                                placeholder="your pincode"
+                                [ngModel]="userDetails.pincode"
+                                type="number">
+                                <div *ngIf="edituser.get('pincode').touched && edituser.get('pincode').invalid">
+                                    <div class="alert alert-danger" *ngIf="edituser.get('pincode').errors.minlength">
+                                        user entered only {{edituser.get('pincode').errors.minlength.actualLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="edituser.get('pincode').errors.maxlength">
+                                        user should enter only {{edituser.get('pincode').errors.maxlength.requiredLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="edituser.get('pincode').errors.required"> 
+                                        user should enter this field mandatorily
+                                    </div>
+                                </div>
+                </div>
+            </div>
+            <div class="subDIV">
+                <div class="col">
+                    <label>Add your address</label>
+                </div>
+                <div class="col">
+                    <textarea  formControlName="address"
+                                placeholder="mark your current address"
+                                [ngModel]="userDetails.address"
+                                type="text">
+                    </textarea>
+                            <div *ngIf="edituser.get('address').touched && edituser.get('address').invalid">
+                                <div class="alert alert-danger" *ngIf="edituser.get('address').errors.minlength">
+                                    user entered only {{edituser.get('address').errors.minlength.actualLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="edituser.get('address').errors.maxlength">
+                                    user should enter only {{edituser.get('address').errors.maxlength.requiredLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="edituser.get('address').errors.required"> 
+                                    user should enter this field mandatorily
+                                </div>
+                            </div>
+                </div>
+            </div>
+            <div class="subDIV">    
+                <div class="col">
+                    <label>&nbsp;</label>
+                </div>
+                <div class="col">
+                    <button *ngIf="!($showProgress | async)"
+                            mat-raised-button color="primary"
+                            [disabled]="edituser.invalid || edituser.status=='PENDING'" 
+                            (click)="save(edituser.value)">save</button>
+                    <button *ngIf="!($showProgress | async)"
+                            mat-raised-button color="warn"
+                            style="margin-left: 10px;"
+                            (click)="formReset()">Clear</button>
+                    <div class="loadspinner" *ngIf="($showProgress | async) && edituser.valid">
+                        <button mat-raised-button color="primary" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status"></span>
+                        </button>
+                    </div>
+                    <div class="custom-error" *ngIf="$errorStatus | async as errorStatus">
+                        {{errorStatus}}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div style="text-align:center;color: green;font-size: 16px;font-weight: 500;">
+        <p *ngIf="showsuccess">user details updated successfully <mat-icon style="margin-left: 5px;">thumb_up</mat-icon></p>
+    </div>
+</section>

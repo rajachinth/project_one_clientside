@@ -1,0 +1,158 @@
+section
+{
+    height: auto;
+    padding-bottom: 50%;
+}
+h4
+{
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+h5 
+{
+    color: grey;
+    font-size: 18px;
+}
+#blockDiv::before {
+    display: block;
+    height: 2px;
+    background-color:#0a3d62;
+    content: " ";
+    margin-top: 5px;
+}
+
+#jQueryB01
+{
+    background-color: steelblue;
+    border: 2px solid steelblue;
+}
+#blankButton
+{
+    opacity: 0.25;
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+}
+#blankButton:hover
+{
+    cursor: not-allowed;
+}
+h6
+{
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    width:100%;
+    margin-bottom: 10px;
+}
+h6::after {
+    display: block;
+    height: 4px;
+    background-color:#0a3d62;
+    content: " ";
+    margin-top: 5px;
+    width: 20%;
+    margin-left: 40%;
+}
+
+img 
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*JQuery Styles*/
+
+.btn-primary
+{
+    background-color: tomato !important;
+    border: 2px solid tomato !important;
+}
+.btn-secondary
+{
+    background-color: cadetblue !important;
+    border: 2px solid cadetblue !important;
+}
+#btn-3
+{
+    background-color: steelblue;
+    border: 2px solid steelblue;
+}
+
+/*Media Queries*/
+
+@media(max-width:1000px)
+{
+    .btn1
+    {
+        width: 40%;
+        font-size: 16px;
+        border-radius: 20px;
+        height: 35px;
+        margin: 0 5%;
+        box-shadow: none;
+    }
+    .btn1,#btn-3, #jqueryB05:focus {outline: none;} 
+    #jqueryB05
+    {
+        transform: translateY(-4px);
+        margin-left: 25px;
+    }
+    #p1
+    {
+        white-space: pre-line !important;
+        text-align: justify!important;
+        color: dimgrey;
+        line-height: 20px!important;
+        font-size: 16px!important;
+        font-weight: 400!important;
+        margin: 10px 0 !important;
+    }
+    #f1
+    {
+        font-weight: 500;
+        line-height: 7px;
+        color: dimgrey;
+        margin-top: 25px;
+        background-color: aliceblue;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+    #f1 p
+    {
+        padding: 5px 0 !important;
+        margin-bottom: 0!important;
+    }
+    #f2 p
+    {
+        font-weight: 600 !important;
+        font-size: 15px !important;
+        width: 100% !important;
+        text-align: justify;
+        padding: 10px 0 !important;
+        margin-bottom: 0!important;
+    }
+    #f3
+    {
+        padding: 5px 10px;
+        background-color: aliceblue;
+    }
+    #f3 p 
+    {
+        line-height: 7px !important;
+        font-weight: 500 !important;
+        padding: 10px 0 !important;
+        margin-bottom: 0!important;
+        color: dimgrey !important;
+    }
+    #f1 mat-icon, #f3 mat-icon
+    {
+        transform: translateY(5px);
+    }
+    ngx-gallery
+    {
+        height: 320px!important;
+    }
+}

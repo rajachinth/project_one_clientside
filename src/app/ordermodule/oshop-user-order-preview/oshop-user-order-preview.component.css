@@ -1,0 +1,15 @@
+.row
+{
+    margin-top: 30%;
+    font-size: 16px;
+    width: 90%;
+    margin-left: 5%;
+}
+.card-body
+{
+    padding: 5px;
+}
+.list-group-item
+{
+    padding: 5px;
+}

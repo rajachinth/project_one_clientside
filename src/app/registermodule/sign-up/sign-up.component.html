@@ -1,0 +1,255 @@
+<section class="section-seven jquery-action-signup" id="user">
+    <div style="width:100%;height: auto; padding-top:25%;padding-bottom: 10%;">
+        <video autoplay loop style="max-width: 100%;">
+            <source src="assets/sign_Up_screen.mp4">
+        </video>  
+    </div>
+    <div class="drawer"  *ngIf="($showProgress | async)"> 
+        <div class="d-flex justify-content-center" style="padding-top: 65%; z-index: 900;">
+            <div class="spinner-border text-white" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!($showData | async)">
+        <div class="section-seven-title" >
+            <h2>User Registration</h2>
+        </div>
+        <form [formGroup]="signupform" class="register-form">
+            <div class="subDIV">
+                <div class="col">
+                    <label>Name</label>
+                </div>
+                <div class="col">
+                        <input  formControlName="username"
+                                placeholder="your name"
+                                type="text">
+                                <div *ngIf="signupform.get('username').touched && signupform.get('username').invalid">
+                                    <div class="alert alert-danger" *ngIf="signupform.get('username').errors.minlength">
+                                        user entered only {{signupform.get('username').errors.minlength.actualLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="signupform.get('username').errors.maxlength">
+                                        user should enter only {{signupform.get('username').errors.maxlength.requiredLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="signupform.get('username').errors.required"> 
+                                        user should enter this field mandatorily
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="signupform.get('username').errors.error"> 
+                                        no special characters allowed
+                                    </div>
+                                </div>
+                </div>
+            </div>
+            <div class="subDIV" >
+                <div class="col">
+                    <label>Email</label>
+                </div>
+                <div class="col">
+                            <input  formControlName="email"
+                                    placeholder="your email"
+                                    type="text">
+                                    <div *ngIf="signupform.get('email').touched && signupform.get('email').invalid">
+                                        <div class="alert alert-danger" *ngIf="signupform.get('email').errors.required"> 
+                                            user should enter this field mandatorily
+                                        </div>
+                                        <div class="alert alert-danger" *ngIf="signupform.get('email').errors.error"> 
+                                            invalid email address
+                                        </div>
+                                    </div>
+                </div>
+            </div>
+            <div class="subDIV">
+                <div class="col">
+                    <label>Mobile</label>
+                </div>
+                <div class="col">
+                    <input  formControlName="mobile"
+                            placeholder="your mobile"
+                            type="number">
+                            <div *ngIf="signupform.get('mobile').touched && signupform.get('mobile').invalid">
+                                <div class="alert alert-danger" *ngIf="signupform.get('mobile').errors.minlength">
+                                    user entered only {{signupform.get('mobile').errors.minlength.actualLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="signupform.get('mobile').errors.maxlength">
+                                    user should enter only {{signupform.get('mobile').errors.maxlength.requiredLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="signupform.get('mobile').errors.required"> 
+                                    user should enter this field mandatorily
+                                </div>
+                            </div>
+
+                </div>
+            </div>
+            <div class="subDIV">
+                <div class="col">
+                    <label>UniqueID</label>
+                </div>
+                <div class="col">
+                    <input  formControlName="uniqueID"
+                            placeholder="your uniqueID"
+                            type="text">
+                            <div style="display: flex; justify-content: space-around;"
+                                 class="uniqueIDcheck" class="alert alert-warning" 
+                                 *ngIf="signupform.get('uniqueID').pending && signupform.get('uniqueID').touched">
+                                <span>checking the uniqueID in database </span>
+                                <mat-progress-spinner [diameter]="20" mode="indeterminate"></mat-progress-spinner>
+                            </div>
+                            <div class="uniqueIDcheck" class="alert alert-info" *ngIf="signupform.get('uniqueID').status =='VALID' && signupform.get('uniqueID').touched">
+                                <span>uniqueID is available<mat-icon>thumb_up</mat-icon></span>
+                            </div>
+                            <div *ngIf="signupform.get('uniqueID').touched && signupform.get('uniqueID').invalid">
+                                <div class="uniqueIDcheck" class="alert alert-danger" *ngIf="signupform.get('uniqueID').errors.uniqueID && signupform.get('uniqueID').touched">
+                                    <span>uniqueID already exist in database<mat-icon>thumb_down</mat-icon></span>
+                                </div> 
+                                <div class="uniqueIDcheck" class="alert alert-danger" *ngIf="signupform.get('uniqueID').errors.serverError && signupform.get('uniqueID').touched">
+                                    <span>unknown server issue,try later<mat-icon>thumb_down</mat-icon></span>
+                                </div> 
+                                <div class="alert alert-danger" *ngIf="signupform.get('uniqueID').errors.minlength">
+                                    user entered only {{signupform.get('uniqueID').errors.minlength.actualLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="signupform.get('uniqueID').errors.maxlength">
+                                    user should enter only {{signupform.get('uniqueID').errors.maxlength.requiredLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="signupform.get('uniqueID').errors.required"> 
+                                    user should enter this field mandatorily
+                                </div>
+                                <div class="alert alert-danger" *ngIf="signupform.get('uniqueID').errors.error"> 
+                                   no space is allowed
+                                </div>
+                            </div>
+                </div>
+            </div>
+            <div class="subDIV">
+                <div class="col">
+                    <label>Password</label>
+                </div>
+                <div class="col">
+                    <input  formControlName="password"
+                            placeholder="your password"
+                            type="password">
+                            <div *ngIf="signupform.get('password').touched && signupform.get('password').invalid">
+                                <div class="alert alert-danger" *ngIf="signupform.get('password').errors.minlength">
+                                    user entered only {{signupform.get('password').errors.minlength.actualLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="signupform.get('password').errors.maxlength">
+                                    user should enter only {{signupform.get('password').errors.maxlength.requiredLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="signupform.get('password').errors.required"> 
+                                    user should enter this field mandatorily
+                                </div>
+                                <div class="alert alert-danger" *ngIf="signupform.get('password').errors.error"> 
+                                    no space is allowed
+                                </div>
+                            </div>
+                </div>
+            </div>
+            <div class="subDIV">
+                <div class="col">
+                    <label>Pincode</label>
+                </div>
+                <div class="col">
+                        <input  formControlName="pincode"
+                                placeholder="your pincode"
+                                type="number">
+                                <div *ngIf="signupform.get('pincode').touched && signupform.get('pincode').invalid">
+                                    <div class="alert alert-danger" *ngIf="signupform.get('pincode').errors.minlength">
+                                        user entered only {{signupform.get('pincode').errors.minlength.actualLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="signupform.get('pincode').errors.maxlength">
+                                        user should enter only {{signupform.get('pincode').errors.maxlength.requiredLength}} characters
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="signupform.get('pincode').errors.required"> 
+                                        user should enter this field mandatorily
+                                    </div>
+                                </div>
+                </div>
+            </div>
+            <div class="subDIV">
+                <div class="col">
+                    <label>Add your address</label>
+                </div>
+                <div class="col">
+                    <textarea  formControlName="address"
+                                placeholder="mark your current address"
+                                type="text">
+                    </textarea>
+                            <div *ngIf="signupform.get('address').touched && signupform.get('address').invalid">
+                                <div class="alert alert-danger" *ngIf="signupform.get('address').errors.minlength">
+                                    user entered only {{signupform.get('address').errors.minlength.actualLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="signupform.get('address').errors.maxlength">
+                                    user should enter only {{signupform.get('address').errors.maxlength.requiredLength}} characters
+                                </div>
+                                <div class="alert alert-danger" *ngIf="signupform.get('address').errors.required"> 
+                                    user should enter this field mandatorily
+                                </div>
+                            </div>
+                </div>
+            </div>
+            <div class="subDIV">    
+                <div class="col">
+                    <label>&nbsp;</label>
+                </div>
+                <div class="col">
+                    <button *ngIf="!($showProgress | async)"
+                            mat-raised-button color="primary"
+                            [disabled]="signupform.invalid || signupform.status=='PENDING'" 
+                            (click)="signUp(signupform.value)">SignUp</button>
+                    <button *ngIf="!($showProgress | async)"
+                            mat-raised-button color="warn"
+                            style="margin-left: 10px;"
+                            (click)="formReset()">Clear</button>
+                    <div class="loadspinner" *ngIf="($showProgress | async) && signupform.valid">
+                        <button mat-raised-button color="primary" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status"></span>
+                        </button>
+                    </div>
+                    <div class="custom-error" *ngIf="$errorStatus | async as errorStatus">
+                        {{errorStatus}}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div *ngIf="$showData | async" >
+        <div *ngIf="$signupObject | async as signupObject">
+            <div style="display: grid;">
+                <div  class="custmessage"> 
+                    <h6>HotList account created succesfully <span>
+                        <mat-icon>thumb_up</mat-icon>
+                    </span></h6>
+                </div>
+                <mat-card >
+                    <mat-card-header>
+                        <div mat-card-avatar class="background-avatar"></div>
+                        <mat-card-title>{{signupObject.username}}</mat-card-title>
+                        <mat-card-subtitle>{{signupObject.email}}</mat-card-subtitle>
+                        <mat-card-subtitle>{{signupObject.mobile}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-list>
+                            <mat-list-item><span style="font-weight: bold;">UniqueID : </span>{{signupObject.uniqueID}}</mat-list-item>
+                            <mat-list-item><span style="font-weight: bold;">Pincode : </span>{{signupObject.pincode}}</mat-list-item>
+                            <mat-list-item><span style="font-weight: bold;">Address : </span>{{signupObject.address}}</mat-list-item>
+                        </mat-list>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <div class="formgrouptwo">
+                            <button mat-raised-button class="btntwo" 
+                                    [routerLink]="['/o-shop']">Continue Shopping<span>
+                                <mat-icon>shopping_cart</mat-icon>
+                            </span></button>
+                            <button mat-raised-button class="btntwo" 
+                                    [routerLink]="['/login']"
+                                    >LogIn<span>
+                                <mat-icon>person</mat-icon>
+                            </span>
+                            </button>
+                    </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>

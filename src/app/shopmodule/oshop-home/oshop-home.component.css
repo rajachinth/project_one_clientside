@@ -1,0 +1,39 @@
+section {
+    height: auto;
+    padding-bottom: 50%;
+}
+
+.searchDiv {
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+}
+
+/*Media Query*/
+
+@media(max-width:1000px)
+{
+    #maindiv
+    {
+        width:100%;
+    }
+    button {
+        font-size: 16px;
+    }
+    input {
+        font-size: 16px;
+    }
+    .searchDiv {
+        font-size: 16px;
+    }
+    .c1
+    {
+        width: 70%;
+        margin-right: 5%;
+    }
+    .c2
+    {
+        /* width: 20%;
+        margin-left: 5%; */
+    }
+}

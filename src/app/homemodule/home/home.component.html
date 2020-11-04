@@ -1,0 +1,41 @@
+<section class="section-top" id="homesection">
+    <div style="width: 100%; padding-top: 25%;">
+        <div  class="owl-carousel owl-theme" id="owl-home">
+            <div>
+                <img src="assets/home_screen_2.png" class="d-block w-100" alt="...">
+            </div>
+            <div>
+                <img src="assets/order_screen_poster_2.png" class="d-block w-100" alt="...">
+            </div>
+            <div>   
+                <img src="assets/sign_up_screen.png" class="d-block w-100" alt="...">
+            </div>
+          </div>  
+          <video autoplay loop style="max-width: 100%;">
+            <source src="assets/sign_in_screen_2.mp4">
+        </video>      
+    </div>  
+    <div class="header-title-content">
+        <h1>Go live! with your favourite products</h1>
+        <div>
+            <a *ngIf="!loginData" class="btn btn-login jquery-btn-login" routerLink="/login">Log In</a>
+            <a *ngIf="loginData" class="btn btn-login jquery-btn-login" routerLink="/home/user-queries">Queries</a>
+            <a class="btn btn-hotlist jquery-btn-login" routerLink="/login">About Us</a>
+            <a class="btn btn-hotlist" routerLink="/o-shop"><ion-icon name="home-outline"></ion-icon></a>
+        </div>
+    </div>
+</section>
+<section style="height: auto; margin-top: 0%; margin-bottom: 0%;">
+    <app-oshop-template-two></app-oshop-template-two>
+</section>
+<section style="height: auto;">
+    <app-oshop-template-one type='home'></app-oshop-template-one>
+</section>
+<div style="width:100%;height: auto; padding-top:5%;padding-bottom:5%;">
+    <img src="assets/order_screen_poster_2.png" style="width: 90%;margin-left: 5%;">
+</div> 
+<section style="height: auto;" class="section-three-main-content" style="padding-bottom: 50%;">
+    <p>It's simple to solve your queries <mat-icon style="font-size: 30px; transform: translateY(5px);">query_builder</mat-icon></p>
+    <app-o-shop-queries></app-o-shop-queries>
+</section>
+  

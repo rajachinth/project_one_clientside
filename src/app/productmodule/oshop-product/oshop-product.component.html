@@ -1,0 +1,159 @@
+<section>
+    <ng-template #errorDiv>
+        <div style="width: 90%;margin-left: 5%">
+            <div *ngIf="$logState | async" class="d-flex justify-content-center" style="padding-top: 100%;">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div *ngIf="$serviceError | async" style="font-size: 14px!important; 
+                                                    color: red;
+                                                    font-weight: 600!important;
+                                                    padding-top: 100%;
+                                                    display: block;">
+                <p style="text-align: center;margin-bottom: 0!important;">{{$serviceErrorMessage | async }} <span><mat-icon style="color: red;">warning</mat-icon></span></p>
+                <p style="text-align: center; margin-bottom: 0!important;color: black;">Please refresh the browser and accept cookies</p>
+            </div>
+        </div>
+    </ng-template>
+   <div *ngIf="showData; else errorDiv">
+       <div style="padding-top: 25%; width: 90%; margin:0 5%" ></div>
+   <div>
+    <div style="padding-top: 10px;">
+        <div style="padding-top: 7px; width: 90%; margin:0 5%;">
+            <ngx-gallery  [options]="productImageOption" [images]="productImage"></ngx-gallery>
+        </div>
+   </div>
+   <div id="blockDiv" style="width: 90%; margin-left: 5%; padding-top: 15px;">
+       <div style="display: block; width: 100%; padding-top: 20px;">
+            <h5>{{productDetails.product}}</h5>
+            <h5>{{productDetails.productID}}</h5>
+       </div>
+       <div style="width: 100%; padding-top: 1px;">
+            <div style="display: flex; margin: 10px 0;">
+                <button id="jQueryB01" class="btn1 btn-secondary" (click)="addQuantity({quantity:'250ML',value:200})">
+                    {{productDetails.varients.quantity}} : {{productDetails.varients.price | currency:'INR'}}</button>
+                <button id="blankButton" class="btn1 btn-secondary"
+                        (click)="blankButton()">500ML : {{400 | currency:'INR'}}</button>
+            </div>
+            <div style="display: flex; margin: 10px 0;">
+                <button id="blankButton" class="btn1 btn-secondary"
+                        (click)="blankButton()">750ML : {{600 | currency:'INR'}}</button>
+                <button id="blankButton" class="btn1 btn-secondary" 
+                        (click)="blankButton()">1000ML : {{800 | currency:'INR'}}</button>
+            </div>
+            <div>
+                <p *ngIf="noProductVarient" style="color: red; text-align: center; font-size: 15px; font-weight: 500; margin-bottom: 0!important;">
+                    varient not available currently <span><mat-icon style="transform: translateY(5px);">warning</mat-icon></span></p>
+                <p *ngIf="yesProductVarient" style="color: green; text-align: center; font-size: 15px; font-weight: 500; margin-bottom: 0!important">
+                    varient available <span><mat-icon style="transform: translateY(5px);">thumb_up</mat-icon></span></p>
+            </div>
+       </div>
+       <div style="width:100%; padding-top:20px; display:flex">
+        <mat-chip-list class="mat-chip-list-stacked" >
+            <mat-chip *ngIf="selectedQuantity" style="background-color: lightgray;">
+                Quantity: {{productQuantity.quantity}} ({{productQuantity.value | currency:'INR'}})
+            </mat-chip>
+            <mat-chip *ngIf="!selectedQuantity" style="background-color: lightgray;">
+                select your quantity
+            </mat-chip>
+          </mat-chip-list>
+          <button id="jqueryB05" mat-mini-fab color="warn" (click)="deleteQuantity()">
+            <mat-icon>delete</mat-icon>
+          </button>
+       </div>   
+       <div *ngIf="!itemDetails[0].isItemAdded else buttontemplate"
+            style="width: 100%; padding: 15px 0; border-radius: 50px; display: flex; background-color: lightgray; margin-top: 15px;">
+             <button
+                        id="btn-3" style="width: 50%; margin-left: 25%; border-radius: 20px; color: white;" 
+                        mat-raised-button
+                        (click)="isQuantitySelected()"
+                        >
+                        add to cart<mat-icon style=" padding-left: 5px;">add_shopping_cart</mat-icon>
+                </button>
+       </div>
+       <div>
+            <p *ngIf="noVarientSelected" style="color: red; text-align: center; font-size: 15px; font-weight: 500; margin-bottom: 0!important;">
+                please select varient <span><mat-icon style="transform: translateY(5px);">warning</mat-icon></span></p>
+        </div>
+       <ng-template #buttontemplate>
+           <div style="width: 100%; padding: 15px 0; border-radius: 50px; display: flex; background-color: lightgray; margin-top: 15px;">
+            <div style="width: 25%; text-align: center;">
+                <button id="btn-3" mat-mini-fab 
+                        *ngIf="!($addItemsToCart | async)" 
+                        (click)="addToCart()"
+                        >
+                    <mat-icon>exposure_plus_1</mat-icon>
+                </button>
+                <div  class="spinner-border" role="status" *ngIf="$addItemsToCart | async">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div style="width: 50%; text-align: center;">
+                <button *ngIf="!($moveCart | async)"
+                        id="btn-3" style="width: 100%; border-radius: 20px; color: white;" 
+                        mat-raised-button>
+                    <a routerLink="/cart/details" style="text-decoration: none; color: white;">
+                        added {{itemDetails[0].itemCount}} items<mat-icon style="transform: translateY(5px);">add_shopping_cart</mat-icon>
+                    </a>
+                </button>
+                <div class="spinner-border" role="status" *ngIf="$moveCart | async">
+                            <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div style="width: 25%; text-align: center;">
+                <button id="btn-3" mat-mini-fab
+                        *ngIf="!($deleteItemsFromCart | async)"
+                        (click)="deleteFromcart()"
+                        >
+                    <mat-icon>exposure_neg_1</mat-icon>
+                </button>
+                <div class="spinner-border" role="status" *ngIf="$deleteItemsFromCart | async">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+           </div>
+       </ng-template>
+       <div style="width: 100%; padding: 25px 0;">
+            <h6>PRODUCT DETAILS</h6>
+            <p id="p1">{{productDetails.productInfo.p1}}</p>
+            <div>
+                <mat-grid-list cols="4" rowHeight="100px">
+                    <mat-grid-tile *ngFor="let image of productDetails.productGallery" colspan=2 rowspan=1>
+                        <img [src]="image.img">
+                    </mat-grid-tile>
+                  </mat-grid-list>
+               </div>
+            <p id="p1">{{productDetails.productInfo.p2}}</p>
+       </div>
+       <div style="width: 100%; padding: 0 25px 0 0;">
+            <h6>MANUFACTURE & EXPORT DETAILS</h6>
+            <div style="width: 100%; font-size: 16px;">
+                <div id="f1">
+                    <p>Exported by  <span> <mat-icon>business</mat-icon></span>  {{productDetails.manufactureDetails.export}}</p>
+                    <p>Established <span> <mat-icon>business_center</mat-icon></span>  {{productDetails.manufactureDetails.established}}</p>
+                    <p>Location  <span> <mat-icon>location_on</mat-icon></span>  {{productDetails.manufactureDetails.location}}</p>
+                </div>
+                <div id="f2">
+                    <p>{{productDetails.contactDetails.note}}</p>
+                </div>
+                <div id="f3">
+                    <p>Mobile  <span> <mat-icon>phone</mat-icon></span>  {{productDetails.contactDetails.mobile}}</p>
+                    <p>Email  <span> <mat-icon>contact_mail</mat-icon></span>  {{productDetails.contactDetails.email}}</p>
+                </div>
+            </div>
+       </div>
+   </div>
+   </div>
+   <div style="width: 90%; margin-left: 5%;">
+        <div style="padding: 25px 0;">
+           <h4>Relevant Products</h4>
+           <app-o-shop-carousel></app-o-shop-carousel>
+       </div>
+   </div>
+   <div style="width: 100%;">
+    <h6>BUSINESS QUERIES</h6>
+       <app-o-shop-queries></app-o-shop-queries>
+   </div>
+   </div>
+</section>

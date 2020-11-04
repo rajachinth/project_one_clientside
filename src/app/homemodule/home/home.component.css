@@ -1,0 +1,90 @@
+section.section-top {
+    /* background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.71)),to(rgba(0, 0, 0, 0.71))),url('src/assets/background_image.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.71),rgba(0, 0, 0, 0.71)),url('src/assets/background_image.jpg'); */
+    height: auto;
+    padding-bottom: 10%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.header-title-content {
+    /* margin-top: 100%;
+    transform: translateY(-50%); */
+}
+.header-title-content h1 {
+    color: black;
+}
+.btn:link, .btn:visited {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 5px 20px;
+    color: black;
+    border-radius: 20px;
+}
+.btn-login:link {
+    background-color: #EE5A24;
+    border: 1px #cf4310;
+    -webkit-transition: -webkit-transform 1s;
+    transition: -webkit-transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s;
+}
+
+.btn-hotlist:link {
+    background-color: #4b6584;
+    border: 1px #4b6584;
+    -webkit-transition: -webkit-transform 1s;
+    transition: -webkit-transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s;
+}
+.btn-hotlist:hover {
+    background-color: #4b6584;
+    border: 1px #4b6584;
+    -webkit-transform: scale3d(1.1,1.1,1.1);
+    transform: scale3d(1.1,1.1,1.1);
+}
+.section-three-main-content p{
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 0;
+}
+.section-three-main-content p::after
+{
+    display: block;
+    height: 5px;
+    margin-left: 37.5%;
+    width: 25%;
+    border-radius: 25%;
+    background-color:#0a3d62;
+    content: " ";
+    margin-top: 5px;
+}
+/*Media Query for Home Component*/
+
+@media(max-width:1000px)
+{
+    .header-title-content {
+        width: 90%;
+        margin-left: 5%;
+        background-color: lightsteelblue;
+        /* padding-top: 10px; */
+        margin-top: 25px;
+        padding: 15px;
+        border-radius: 40px;
+            text-align: center;
+        /* transform: translateY(-50%); */
+    }
+    .header-title-content div {
+        width: 100%;
+        text-align: center;
+    }
+    a { font-size: 16px!important;}
+    h1 {font-size: 16px !important; font-weight: 500; padding-bottom:10px}
+}

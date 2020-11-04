@@ -1,0 +1,61 @@
+section
+{
+    height: 125vh;
+}
+.card
+{
+    margin: 20px 5px;
+    width:50%;
+    float: left;
+}
+.card-footer
+{
+    height: 40px;
+}
+button
+{
+    width: 100%;
+}
+
+/* Media Query*/
+
+@media (max-width:1000px)
+{
+    button,h6 { font-size: 14px; white-space: nowrap; text-overflow:ellipsis; overflow: hidden;}
+    #btn_one {width: 100%; text-align: center;}
+    #btn_two { width: 40%; padding:0 5%; text-align: center;}
+    .card {
+        margin: 20px 8px;
+        width: 45%;
+        float: left;
+    }
+    .card-body {
+        padding: 10px;
+    }
+
+    .card-footer
+    {
+        padding: 0px!important;
+
+    }
+    .search-list
+    {
+        padding-top: 25%;
+    }
+    h5 
+    {
+        font-size: 20px;
+        width: 90%;
+        margin-left: 5%;
+    }
+    .formgrouptwo
+    {
+    text-align: center;
+    margin-bottom: 5%;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin-left: 20%;
+    }
+}

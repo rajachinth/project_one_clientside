@@ -1,0 +1,46 @@
+.card-footer
+{
+    padding: 0%;
+}
+
+.card-footer
+{
+    height: 40px;
+}
+
+button
+{
+    width: 100%;
+}
+
+#carousel:after {
+    display: block;
+    height: 3px;
+    background-color:#0a3d62;
+    content: " ";
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/*Media Query*/
+
+@media(max-width:1000px)
+{
+    button,h6 { font-size: 14px; white-space: nowrap; text-overflow:ellipsis; overflow: hidden;}
+    .card {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .card-body {
+        padding: 10px;
+        background-color: lightgrey;
+    }
+    .btn 
+    {
+        background-color: darkslategrey;
+        border-color: darkslategrey;
+        color: white;
+    }
+
+}

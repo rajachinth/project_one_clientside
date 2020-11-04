@@ -1,0 +1,14 @@
+.accessdenied
+{
+    padding-top: 75%;
+    width: 90%;
+    margin:0 5%;
+    display: grid;
+    justify-content: center;
+}
+.button
+{
+    margin-top: 5%;
+    display: grid;
+    justify-content: center;
+}

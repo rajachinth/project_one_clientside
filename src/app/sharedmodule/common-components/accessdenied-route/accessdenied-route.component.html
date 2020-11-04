@@ -1,0 +1,15 @@
+<section style="height: auto; min-height: 100vh;">
+    <div class="accessdenied" >
+        <div>
+            <p style="font-size:20px; font-weight:600;">Please login to continue
+            <span>
+                <mat-icon style="font-size: 30px;color: red; transform:translateY(5px)">warning</mat-icon>
+            </span></p>
+        </div>
+        <div class="button">
+            <button mat-raised-button color="primary" 
+                    [routerLink]="['/login']" 
+                    [queryParams]="{requestbackURL:queryParam}">Login</button>
+        </div>
+    </div>
+</section>

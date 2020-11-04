@@ -1,0 +1,29 @@
+<div class="sticky">
+        <ul class="list-group list-group-horizontal" style="background-color: bisque!important;">
+                <li class="list-group-item list-group-item-action d-flex justify-content-center">
+                        <a 
+                                routerLink="/o-shop" 
+                                [class.active]="!categoryParamsValue"
+                                (click)="onclick()"
+                        >All</a>
+                </li>
+                <li *ngFor="let category of categoryList; index as i" class="list-group-item list-group-item-action d-flex justify-content-center" >
+                        <a  routerLink="/o-shop" 
+                            [queryParams]="{category:category.category,id:category.categoryID}"
+                            [class.active]="category.categoryID == categoryParamsValue"
+                            (click)="onclick()"
+                        >
+                        {{category.category}}
+                        </a>
+                </li>
+        </ul>
+</div>
+
+<div class="sticky">
+        <ul>
+                 
+        </ul>
+         <ul class="list-group list-group-horizontal">
+                 
+         </ul>
+ </div>

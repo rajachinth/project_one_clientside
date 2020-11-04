@@ -1,0 +1,31 @@
+.row
+{
+    margin-top: 30%;
+    font-size: 16px;
+}
+a
+{
+    cursor: pointer;
+}
+
+@media(max-width:1000px)
+{
+    th,td
+    {
+        padding: 5px!important;
+    }
+    .loadspinner
+    {
+        margin-top: 100%;
+        margin-left: 45%;
+        width: 10%;
+    }
+    .errorLogin
+    {
+        margin-top: 5%;
+        margin-left: 10%;
+        width: 80%;
+        text-align: center;
+    }
+
+}

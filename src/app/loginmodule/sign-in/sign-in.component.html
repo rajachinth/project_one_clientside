@@ -1,0 +1,90 @@
+<section style="height: auto; padding-bottom: 50%;">
+    <div style="width:100%;height: auto; padding-top: 25%;">
+        <video autoplay loop style="max-width: 100%;">
+            <source src="assets/login_screen.mp4">
+        </video>  
+    </div>
+    <div class="drawer" *ngIf="($timeout | async)"> 
+        <div class="d-block justify-content-center" style="padding-top: 80%; z-index: 900; text-align: center;">
+            <div class="spinner-border text-white" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <div>
+                <p style="font-size: 18px!important; color: white;font-weight: 600;">please wait, we are fetching user details</p>
+            </div>
+        </div>
+    </div>
+    <div class="signinform">
+       <form #form="ngForm">
+           <label *ngIf="($showLabel | async)" style="color: red; font-weight: 600;">Please Login to continue</label>
+           <div ngModelGroup="modelgroupone" #modelgroupone="ngModelGroup">
+                <label for="#uniqueID">Username</label>
+                <input  ngModel 
+                        name="uniqueID"
+                        #uniqueID="ngModel"
+                        required
+                        minlength="6"
+                        maxlength="10"
+                        type="text"
+                        id="uniqueID">
+                <div *ngIf="uniqueID.touched && uniqueID.invalid" >
+                  <div *ngIf="uniqueID.errors.minlength" class="error">
+                      user entered only {{uniqueID.errors.minlength.actualLength}} characters
+                  </div>
+                  <div *ngIf="uniqueID.errors.required" class="error"> 
+                      user should enter this field mandatorily
+                  </div>
+                </div>
+                <label for="#password">Password</label>
+                <input  class="jquery-password"
+                        ngModel 
+                        name="password"
+                        #password="ngModel"
+                        required
+                        minlength="4"
+                        maxlength="10"
+                        matInput
+                        type="password"
+                        uppercase
+                        id="password">
+                <span class="password-visible">
+                    <a *ngIf="show" (click)="showKey()" class="hidepassword">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </a>
+                    <a *ngIf="!show" (click)="showKey()" class="showpassword">
+                        <ion-icon name="eye-off-outline"></ion-icon>
+                    </a>
+                </span>
+                <div *ngIf="password.touched && password.invalid">
+                    <div *ngIf="password.errors.minlength" class="error">
+                        user entered only {{password.errors.minlength.actualLength}} characters
+                    </div>
+                    <div *ngIf="password.errors.required" class="error"> 
+                        user should enter this field mandatorily
+                    </div>
+                </div>
+                <div class="btn-signin">
+                    <button *ngIf="!($logState | async)"
+                            [disabled]="modelgroupone.invalid" 
+                            (click)="logIn(modelgroupone.value)">Submit</button>
+                    <div class="loadspinner" *ngIf="($logState | async)">
+                        <button class="btn-signin" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status"></span>
+                        </button>
+                    </div>
+                </div>
+                <div *ngIf="($errorCheck | async)" class="errorLogin">
+                    <label style="text-align: center; color: red;font-weight: 700;">{{$errorStatus | async}} <span>
+                        <mat-icon style="color: red; transform: translateY(5px);">warning</mat-icon>
+                    </span></label>
+                </div>
+           </div>
+       </form>
+    </div>
+    <div class="register">
+        <div>
+            <p>New to OSOP ? Register now</p>
+            <a class="btn btn-hotlist jquery-btn-register" routerLink="/register">Register</a>
+        </div>
+    </div>
+</section>

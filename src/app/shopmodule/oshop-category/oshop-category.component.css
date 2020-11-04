@@ -1,0 +1,39 @@
+.sticky
+{
+    width: 90%;
+    margin-left: 5%;
+}
+span {
+    padding: 7px;
+    margin-left: 5px;
+}
+a{
+    color: black!important;
+}
+.active
+{
+    color: #007bff!important;
+}
+/*Media Query*/
+
+@media(max-width:1000px)
+{
+    .sticky
+    {
+        width: 90%;
+        margin-left: 5%;
+        font-size: 16px;
+    }
+    .list-group-item {
+        padding: 0px !important;
+        border: 0px !important;
+    }
+    ul 
+    {
+        font-size: 14px;
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

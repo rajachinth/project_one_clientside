@@ -1,0 +1,40 @@
+.profileView { width: 100%;display:inline-block;padding-top: 25%;}             
+.backgroundSource
+{
+  width: 25%;
+  height: auto;
+  margin-left: 37.5%;
+}
+.profileUser {text-align: center;padding: 5px;font-weight: bold;}
+.profileAddress {width: 100%;height: auto; font-weight: 500;color: olive;}
+.profileContact {
+    padding: 15px;
+    background-color: aliceblue;
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 25px;
+    font-size: 16px;
+    height: auto;
+    display: inline-block;
+}
+.contactService {width: 100%;text-align: center;display: flex;}
+.iconStyle {color: cadetblue;font-size: 20px;position: relative;margin-right: 3px;}
+.locationIcon {color: cadetblue;font-size: 20px;}
+
+.contactEmail p,.contactService p {text-overflow: ellipsis;overflow: hidden;}
+
+.profileLocation {
+  width: 100%;
+  text-align: center;
+  height: auto;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn
+{
+    padding: 5px;
+    font-size: 16px;
+    margin: 10px;
+}

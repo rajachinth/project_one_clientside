@@ -1,0 +1,81 @@
+<section>
+    <div class="main-body">
+        <ng-template #template1>
+            <h5 style="width: 100%;font-size: 18px;text-align: center;">Load your cart to procced further</h5>
+        </ng-template>
+        <div class="col-12" *ngIf="$cartState | async as cart">
+            <ng-container *ngIf="cart.totalItemsCount > 0; else template1">
+                <div style="display: flex;">
+                <h5>Your cart is loaded with {{cart.totalItemsCount}} items</h5>
+                <button class="btn btn-secondary"
+                    style="margin-left: 10px; margin-bottom: 10px;"
+                   (click)="clearCart()"
+                   >Clear Cart</button>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;"></th>
+                            <th class="text-left" style="width: 150px;">Product</th>
+                            <th class="text-center" style="width: 100px;">Quantity</th>
+                            <th class="text-center" style="width: 100px;">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of cart.productItem | paginate: { itemsPerPage: 4, currentPage: p }">
+                            <td>
+                                <div class="backgroundSource" [style.background-image]="'url('+item.imageURL+')'"></div>
+                            </td>
+                            <td class="text-left">{{item.product}}</td>
+                            <td class="text-center">
+                                <ng-container>
+                                    <div class="row no-gutters" >
+                                        <div class="col-3" style="margin-right: 5px;">
+                                            <button class="btn btn-success btn-block"
+                                                    (click)="deleteFromcart(item)"
+                                                    *ngIf="!($deleteItemsFromCart | async)"
+                                                    style="border-radius: 25px;"
+                                                    >-</button>
+                                            <div style="width: 20px; height: 20px;" class="spinner-border" role="status" 
+                                                 *ngIf="$deleteItemsFromCart | async">
+                                                    <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-4" style="text-align: center;">
+                                            <p style="width: 100%; white-space: pre; overflow: hidden"
+                                               class="btn btn-secondary">X{{item.itemCount}}</p>
+                                        </div>
+                                        <div class="col-3" style="margin-left: 5px;">
+                                            <button class="btn btn-danger btn-block"
+                                            *ngIf="!($addItemsToCart | async)"
+                                                    (click)=addToCart(item)
+                                                    style="margin-left: 5px;"
+                                                    >+</button>
+                                            <div style="width: 20px; height: 20px;" class="spinner-border" role="status" 
+                                                 *ngIf="$addItemsToCart | async">
+                                                        <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </td>
+                            <td class="text-center">{{item.price | currency:'INR'}}</td>
+                        </tr>
+                    </tbody>
+                    <div style="position: relative; font-size:15px;text-align:center; display:inline-block; width:400%; margin: 20px 0;">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                    <tfoot>
+                    <th class="text-left" style="position: absolute;">Final sum</th>
+                    <th></th>
+                    <th class="text-center">{{cart.totalItemsCount}}</th>
+                    <th class="text-center">{{cart.totalItemsCost | currency:'INR'}}</th>
+                    </tfoot>
+                </table>
+                <button style="margin-top: 5px;" class="btn btn-danger"
+                        routerLink='/cart/summary'>Proceed</button>
+            </ng-container>
+        </div>
+    </div>
+</section>
+
