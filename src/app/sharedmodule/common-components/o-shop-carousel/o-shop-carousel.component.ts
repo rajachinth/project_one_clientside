@@ -1,7 +1,7 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
-import * as $ from 'jQuery';
+// import * as $ from 'jQuery';
 import { InternalServerError, ApplicationError } from '../../global errors/applicationerrors';
 import { ProductformService } from '../../services/productform.service';
 
