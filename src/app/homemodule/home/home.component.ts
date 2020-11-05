@@ -20,7 +20,10 @@ export class HomeComponent implements OnInit {
      $(document).ready(function() {
       // console.log('jquery element click');
       $('.header-brand-logo').trigger('click');
-    });
+      // const videoPlayBack = $('.video_jqueryX1').get(0) as HTMLVideoElement;
+      // videoPlayBack.play();
+      // $('.video_jqueryX1').get().play();
+    }); 
     // document.getElementsByClassName('header-brand-logo')
     //  docu  ment.getElementById('HeaderClick').click();
   }

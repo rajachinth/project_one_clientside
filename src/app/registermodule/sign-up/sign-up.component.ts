@@ -62,7 +62,7 @@ export class SignUpComponent {
     address: new FormControl('', [
               Validators.required,
               Validators.maxLength(40),
-              Validators.minLength(8),
+              Validators.minLength(10),
     ]),
   });
 
@@ -76,7 +76,7 @@ export class SignUpComponent {
         .subscribe((responseData: any) => {
           const authToken: string = responseData.toString();
           // localStorage.setItem('signUpToken', authToken);
-          // this.decodedData = this.authService.decodeToken();
+          this.decodedData = this.authService.decodeCustomToken(authToken);
           // console.log(this.decodedData);
         },
         (error) => {

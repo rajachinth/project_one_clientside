@@ -56,7 +56,6 @@ export class SignInComponent implements OnInit, OnDestroy {
         .subscribe((responseData: any) => {
           const authToken: string = responseData.toString();
           try {  localStorage.setItem('authToken', authToken); } catch (e) {console.log(e); }
-          console.log('dispatchh');
           this.ngRedux.dispatch({type: ADDTOKENAUTH, data: authToken});
           this.decodedData = this.authservice.decodeToken();
           // console.log(this.decodedData);

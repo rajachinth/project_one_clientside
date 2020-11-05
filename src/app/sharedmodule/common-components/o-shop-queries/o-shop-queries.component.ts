@@ -52,7 +52,7 @@ export class OShopQueriesComponent {
     address: new FormControl('', [
               Validators.required,
               Validators.maxLength(40),
-              Validators.minLength(8),
+              Validators.minLength(10),
     ]),
     category: new FormControl('', [ Validators.required]),
     product: new FormControl('', [ Validators.required]),

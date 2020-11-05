@@ -18,7 +18,6 @@ export class AuthserviceService {
     try { accesToken = localStorage.getItem('accessToken'); } catch (e) { console.log(e); }
     accesToken = (accesToken) ? accesToken : this.ngRedux.getState().tokenstate.accessToken;
     console.log(this.ngRedux.getState().tokenstate.accessToken);
-    console.log(accesToken);
     if (!this.jwt.isTokenExpired(accesToken)) { return true; } else { return false; }
   }
   decodeToken() {
@@ -26,8 +25,11 @@ export class AuthserviceService {
     try {   authToken = localStorage.getItem('authToken'); } catch (e) { console.log(e); }
     authToken = (authToken) ? authToken : this.ngRedux.getState().tokenstate.authToken;
     console.log(this.ngRedux.getState().tokenstate.accessToken);
-    console.log(authToken);
     const DTOKEN = this.jwt.decodeToken(authToken);
+    return DTOKEN;
+  }
+  decodeCustomToken(token) {
+    const DTOKEN = this.jwt.decodeToken(token);
     return DTOKEN;
   }
   logoutService() {
