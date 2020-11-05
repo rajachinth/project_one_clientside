@@ -70,7 +70,7 @@ section.section-top {
 
 @media(max-width:1000px)
 {
-    .header-title-content {
+    .header-title-content { 
         width: 95%;
         margin-left: 2.5%;
         background-color: lightsteelblue;
