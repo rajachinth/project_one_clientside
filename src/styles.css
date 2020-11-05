@@ -95,7 +95,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
 }
 
-@media(max-width:360px)
+@media(max-width:355px)
 {
     .allow-screen
     {
