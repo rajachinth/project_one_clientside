@@ -75,8 +75,8 @@ export class SignUpComponent {
         .pipe(take(1))
         .subscribe((responseData: any) => {
           const authToken: string = responseData.toString();
-          localStorage.setItem('signUpToken', authToken);
-          this.decodedData = this.authService.decodeToken('signUpToken');
+          // localStorage.setItem('signUpToken', authToken);
+          // this.decodedData = this.authService.decodeToken();
           // console.log(this.decodedData);
         },
         (error) => {

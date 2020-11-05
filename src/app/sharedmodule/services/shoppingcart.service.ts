@@ -24,7 +24,7 @@ export class ShoppingcartService implements OnDestroy {
       });
   }
   userEditService(userdata) {
-    const decodeData = this.jwtService.decodeToken('authToken');
+    const decodeData = this.jwtService.decodeToken();
     // console.log(decodeData.uniqueID);
     const obj = {id: decodeData.uniqueID};
     const dataObj = Object.assign({}, userdata, obj);
@@ -32,19 +32,22 @@ export class ShoppingcartService implements OnDestroy {
     return this.http.post('https://vinayakatradergroup.herokuapp.com/edituser', dataObj, {responseType: 'json'});
   }
   getUserDetailsService() {
-    const decodeData = this.jwtService.decodeToken('authToken');
+    const decodeData = this.jwtService.decodeToken();
     // console.log(decodeData.uniqueID);
     const obj = {uniqueID: decodeData.uniqueID};
     return this.http.post('https://vinayakatradergroup.herokuapp.com/authentication/login/getuser-details', obj, {responseType: 'json'});
   }
   getCartSummary() {
-    const decodeData = this.jwtService.decodeToken('authToken');
+    const decodeData = this.jwtService.decodeToken();
     // console.log(decodeData.uniqueID);
+
     const obj = {userID: decodeData.uniqueID};
     return this.http.post('https://vinayakatradergroup.herokuapp.com/shoppingCart/summary', obj);
   }
   addCartItems(cartList) {
-    const decodeData = this.jwtService.decodeToken('authToken');
+    const decodeData = this.jwtService.decodeToken();
+    console.log(decodeData);
+
     // console.log(decodeData.uniqueID);
     const obj = {userID: decodeData.uniqueID, productID: cartList.productID, product: cartList.product,
             price: cartList.price, imageURL: cartList.imageURL};
@@ -52,7 +55,7 @@ export class ShoppingcartService implements OnDestroy {
     return this.http.post('https://vinayakatradergroup.herokuapp.com/shoppingCart/addItem', obj);
   }
   deleteCartItems(cartList) {
-    const decodeData = this.jwtService.decodeToken('authToken');
+    const decodeData = this.jwtService.decodeToken();
     // console.log(decodeData.uniqueID);
     const obj = {userID: decodeData.uniqueID, productID: cartList.productID, product: cartList.product,
             price: cartList.price, imageURL: cartList.imageURL};
@@ -61,7 +64,7 @@ export class ShoppingcartService implements OnDestroy {
   }
   getJSONData() {
     if (this.jwtService.loginStatus()) {
-      const decodeData = this.jwtService.decodeToken('authToken');
+      const decodeData = this.jwtService.decodeToken();
       // console.log(decodeData.userID);
       const obj = {uniqueID: decodeData.userID};
       return this.http.post('https://vinayakatradergroup.herokuapp.com/ecommerce/userData/populate', obj);

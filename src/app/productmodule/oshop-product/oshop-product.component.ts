@@ -9,7 +9,7 @@ import { ProductCard } from 'src/app/sharedmodule/models/product-card';
 import { ProductformService } from 'src/app/sharedmodule/services/productform.service';
 import { ShoppingcartService } from 'src/app/sharedmodule/services/shoppingcart.service';
 import { UserService } from 'src/app/sharedmodule/services/userservice.service';
-import { ADDCART, DELETECART } from 'src/app/storemodule/redux/coreaction';
+import { ADDCART, ADDTOKENAUTH, DELETECART } from 'src/app/storemodule/redux/coreaction';
 import { RootStoreState } from 'src/app/storemodule/redux/corestore';
 
 
@@ -24,18 +24,21 @@ export class OshopDialogBox {
   @select(value => value.logstate.show) $logState: Observable<object>;
 
 
-  constructor(public dialogRef: MatDialogRef<OshopDialogBox>, private userService: UserService) {}
+  constructor(public dialogRef: MatDialogRef<OshopDialogBox>,
+              private ngRedux: NgRedux<RootStoreState>,
+              private userService: UserService) {}
 
   No_Login() {
     this.userService.getDefaultUserService()
             .subscribe((responseData) => {
               this.defaultToken = responseData;
+              this.ngRedux.dispatch({type: ADDTOKENAUTH, data: this.defaultToken});
             },
             (error) => {
               this.$dialogError = of('something went wrong');
             },
             () => {
-              localStorage.setItem('authToken', this.defaultToken);
+              try {   localStorage.setItem('authToken', this.defaultToken); } catch(e) {console.log(e)};
               this.dialogRef.close(true);
             });
   }

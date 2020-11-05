@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { combineLatest, Observable, Subscription } from 'rxjs';
 import { AuthserviceService } from './sharedmodule/services/authservice.service';
-import { LOGOUTUSER, CLEARCART } from './storemodule/redux/coreaction';
+import { LOGOUTUSER, CLEARCART, REMOVETOKEN } from './storemodule/redux/coreaction';
 import { RootStoreState } from './storemodule/redux/corestore';
 
 
@@ -51,6 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.authservice.logoutService();
     this.ngRedux.dispatch({type: CLEARCART});
     this.ngRedux.dispatch({type: LOGOUTUSER});
+    this.ngRedux.dispatch({type: REMOVETOKEN});
     this.route.navigate(['/login']);
   }
   ngOnDestroy() {

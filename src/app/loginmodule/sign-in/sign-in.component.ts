@@ -7,7 +7,7 @@ import { BadRequestError, NotFounfError, InternalServerError, ApplicationError }
 import { AuthserviceService } from 'src/app/sharedmodule/services/authservice.service';
 import { ShoppingcartService } from 'src/app/sharedmodule/services/shoppingcart.service';
 import { UserService } from 'src/app/sharedmodule/services/userservice.service';
-import { RESTORECART, USERDATA } from 'src/app/storemodule/redux/coreaction';
+import { ADDTOKENAUTH, RESTORECART, USERDATA } from 'src/app/storemodule/redux/coreaction';
 import { RootStoreState } from 'src/app/storemodule/redux/corestore';
 
 
@@ -55,8 +55,10 @@ export class SignInComponent implements OnInit, OnDestroy {
         .pipe(take(1))
         .subscribe((responseData: any) => {
           const authToken: string = responseData.toString();
-          localStorage.setItem('authToken', authToken);
-          this.decodedData = this.authservice.decodeToken('authToken');
+          try {  localStorage.setItem('authToken', authToken); } catch (e) {console.log(e); }
+          console.log('dispatchh');
+          this.ngRedux.dispatch({type: ADDTOKENAUTH, data: authToken});
+          this.decodedData = this.authservice.decodeToken();
           // console.log(this.decodedData);
         },
         (error) => {

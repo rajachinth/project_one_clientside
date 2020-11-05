@@ -10,7 +10,7 @@ export class AuthguardService implements CanActivate {
 
   canActivate(activeRoute: ActivatedRouteSnapshot, routerState: RouterStateSnapshot) {
     if (this.authservice.loginStatus()) {
-      const decodevalue = this.authservice.decodeToken('authToken');
+      const decodevalue = this.authservice.decodeToken();
       if (decodevalue.loggedin) { return true; } else { return this.route.navigate(['/routeRedirect/accessdenied'], {queryParams: {requestbackURL: routerState.url}}); }
     } else { this.route.navigate(['/routeRedirect/accessdenied'], {queryParams: {requestbackURL: routerState.url}}); }
   }

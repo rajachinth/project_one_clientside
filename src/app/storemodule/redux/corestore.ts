@@ -4,6 +4,7 @@ import { SignUpState, SIGNUPSTATE, signUpStateReducer } from './signupstore';
 import { CartStore, CARTINITSTATE, CartStateReducer } from './cartstore';
 import { ORDERINITSATE, OrderState, orderStateReducer } from './orderstore';
 import { LogState, LogStateInitState, LogStateStateReducer } from './logstore';
+import { TokenState, TOKENSTATE, TokenStateReducer } from './tokenstatus';
 
 
 export interface RootStoreState {
@@ -12,6 +13,7 @@ export interface RootStoreState {
     cartstate: CartStore;
     orderstate: OrderState;
     logstate: LogState;
+    tokenstate: TokenState;
 }
 
 export const INITIALSTATE: RootStoreState = {
@@ -20,7 +22,8 @@ export const INITIALSTATE: RootStoreState = {
     signupstate: SIGNUPSTATE,
     cartstate: CARTINITSTATE,
     orderstate: ORDERINITSATE,
-    logstate: LogStateInitState
+    logstate: LogStateInitState,
+    tokenstate: TOKENSTATE,
 };
 
 export const rootReducer = combineReducers({
@@ -28,5 +31,6 @@ export const rootReducer = combineReducers({
     signupstate: signUpStateReducer,
     cartstate: CartStateReducer,
     orderstate: orderStateReducer,
-    logstate: LogStateStateReducer
+    logstate: LogStateStateReducer,
+    tokenstate: TokenStateReducer,
 });

@@ -7,7 +7,7 @@ import { NgRedux } from '@angular-redux/store';
 
 
 import { RootStoreState } from 'src/app/storemodule/redux/corestore';
-import { ADDSECRET, SHOPPING_HIDE_LOAD_ADD_TO_CART, SHOPPING_HIDE_LOAD_DEL_FROM_CART, SHOPPING_HIDE_LOAD_MOV_CART, HIDE_LOAD } from 'src/app/storemodule/redux/coreaction';
+import { ADDSECRET, SHOPPING_HIDE_LOAD_ADD_TO_CART, SHOPPING_HIDE_LOAD_DEL_FROM_CART, SHOPPING_HIDE_LOAD_MOV_CART, HIDE_LOAD, ADDTOKENACCESS } from 'src/app/storemodule/redux/coreaction';
 
 @Injectable({
     providedIn: 'root'
@@ -38,12 +38,18 @@ export class HttpResponseInterceptor implements HttpInterceptor {
                     tap((response: HttpEvent<any>) => {
                     if (response instanceof HttpResponse && response.headers.has('accessToken')) {
                         const reponseToken = response.headers.get('accessToken');
+                        try {
                         localStorage.setItem('accessToken', reponseToken);
+                       }catch (e) {
+                         console.log(e);
+                       }
                         // console.log(reponseToken);
+                        console.log('interceptor');
+                        this.ngRedux.dispatch({type: ADDTOKENACCESS, data: reponseToken});
                         this.ngRedux.dispatch({type: ADDSECRET, data: {token: reponseToken}});
                     }},
                     (error) => {
-                      //  console.log(error);
+                       console.log(error);
                       },
                     () => {
                       // console.log('HTTP response completed successfully');

@@ -37,7 +37,8 @@ export class HttpRequestInterceptor implements HttpInterceptor {
         //    request.url.match(/\/updateProduct/ )) {
         // request = request.clone({setHeaders: {AccessToken: 'securityToken'}});
         // }
-        this.accessToken = localStorage.getItem('accessToken');
+        try { this.accessToken = localStorage.getItem('accessToken'); } catch (e) {console.log(e); }
+        this.accessToken = (this.accessToken) ? this.accessToken : this.ngRedux.getState().tokenstate.accessToken;
         // console.log(this.accessToken)
         if (this.accessToken) {
         request = request.clone({setHeaders: {accessToken: this.accessToken}});

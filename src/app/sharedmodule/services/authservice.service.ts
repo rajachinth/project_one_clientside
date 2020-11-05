@@ -1,26 +1,37 @@
+import { NgRedux } from '@angular-redux/store';
 import { Injectable } from '@angular/core';
 import {JwtHelperService} from '@auth0/angular-jwt';
+import { RootStoreState } from 'src/app/storemodule/redux/corestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthserviceService {
 
-  constructor(private jwt: JwtHelperService) { }
+  constructor(private jwt: JwtHelperService, private ngRedux: NgRedux<RootStoreState>) { }
 
   loginService(token?: string) {
-    localStorage.setItem('authToken', token);
+   try {  localStorage.setItem('authToken', token); } catch (e) { console.log(e); }
   }
   loginStatus() {
-    if (!this.jwt.isTokenExpired(localStorage.getItem('accessToken'))) { return true; } else { return false; }
+    let accesToken;
+    try { accesToken = localStorage.getItem('accessToken'); } catch (e) { console.log(e); }
+    accesToken = (accesToken) ? accesToken : this.ngRedux.getState().tokenstate.accessToken;
+    console.log(this.ngRedux.getState().tokenstate.accessToken);
+    console.log(accesToken);
+    if (!this.jwt.isTokenExpired(accesToken)) { return true; } else { return false; }
   }
-  decodeToken(keyToken) {
-    const DTOKEN = this.jwt.decodeToken(localStorage.getItem(keyToken));
+  decodeToken() {
+    let authToken;
+    try {   authToken = localStorage.getItem('authToken'); } catch (e) { console.log(e); }
+    authToken = (authToken) ? authToken : this.ngRedux.getState().tokenstate.authToken;
+    console.log(this.ngRedux.getState().tokenstate.accessToken);
+    console.log(authToken);
+    const DTOKEN = this.jwt.decodeToken(authToken);
     return DTOKEN;
   }
   logoutService() {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('authToken');
-
+    try {  localStorage.removeItem('accessToken');
+           localStorage.removeItem('authToken'); } catch (e) { console.log(e); }
   }
 }
