@@ -3,9 +3,9 @@
         <nav class="second-nav navbar navbar-expand-lg">
             <div class="row-center nav-bar" >
                 <div>
-                    <img src="assets/brandlogo_one.png" alt="brand_logo" id="header-brand-logo" routerLink='/home'>
+                    <img src="assets/brandlogo_one.png" alt="brand_logo" class="header-brand-logo" id="HeaderClick" routerLink='/home'>
                     <ul class="header-navbar-list">
-                        <li id="l1" id="jquery_ID011"><a routerLink="/o-shop">SHOP</a></li>
+                        <li id="l1" class="jquery_ID011"><a routerLink="/o-shop">SHOP</a></li>
                         <li id="l1"><a routerLink="/cart/details"><mat-icon>shopping_cart</mat-icon>
                             <span *ngIf="$cartState | async as cartState" class="badge badge-pill badge-success">
                                 {{cartState.totalItemsCount}}

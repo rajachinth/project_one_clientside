@@ -1,7 +1,7 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
-// import * as $ from 'jQuery';
+import * as $ from 'jQuery';
 import { InternalServerError, ApplicationError } from '../../global errors/applicationerrors';
 import { ProductformService } from '../../services/productform.service';
 
@@ -50,11 +50,11 @@ export class OShopCarouselComponent implements OnInit {
                          if (error instanceof InternalServerError) { return this.$showErrorProducts = of('internal server error'); }
                          if (error instanceof ApplicationError) { return this.$showErrorProducts = of('unknow error'); }},
                          () => {
-                          // $(document).ready(function() {
-                          //   // console.log('jquery element click');
-                          //   $('.jquery_ID011').trigger('click');
-                          // });
-                          document.getElementById('jquery_ID011').click();
+                          $(document).ready(function() {
+                            // console.log('jquery element click');
+                            $('.jquery_ID011').trigger('click');
+                          });
+                          // document.getElementById('jquery_ID011').click();
                           });
   }
   scroll() {
