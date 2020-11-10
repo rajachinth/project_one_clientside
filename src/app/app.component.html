@@ -46,7 +46,8 @@
                     <li><a (click)="scroll()" routerLink="/home/about-us">About Us</a></li>
                     <li><a (click)="scroll()" routerLink="/home">Home</a></li>
                     <li><a (click)="scroll()" routerLink="/register">Register</a></li>
-                    <li><a (click)="scroll()" routerLink="/login">Login</a></li>
+                    <li *ngIf="!isUserLogged"><a (click)="scroll()" routerLink="/login" >login</a></li>
+                    <li *ngIf="isUserLogged"><a (click)="logOut()">logout</a></li>
                 </ul>
             </div>
             <div class="footer-list-two">   
@@ -61,7 +62,8 @@
             <p>quick links</p>
             <ul>
                 <div class="quicklinks_li" style="width: 50%;">
-                    <li><a (click)="scroll()" routerLink="/login" >User login</a></li>
+                    <li *ngIf="!isUserLogged"><a (click)="scroll()" routerLink="/login" >User login</a></li>
+                    <li *ngIf="isUserLogged"><a (click)="logOut()">User logout</a></li>
                     <li><a (click)="scroll()" routerLink="/register" >User register</a></li>
                     <li><a (click)="scroll()" routerLink="/cart/details" >Shop cart</a></li>
                     <li><a (click)="scroll()" routerLink="/o-shop" >Store</a></li>
@@ -80,6 +82,7 @@
                 <label>Sri Vinayaka Traders</label>
                 <img style=" width: 20%;
                             height: 20%;
+                            transform: translateY(-5px);
                             border-radius: 50%;" 
                             src="assets/brandlogo_one.png" alt="brand_logo" class="header-brand-logo" routerLink='/home'>
             </div>
@@ -90,7 +93,7 @@
             </div>
         </div>
         <div style="width: 100%; color: white; font-weight: 500;padding-bottom: 20px; text-align: center; display: block;">
-            <p style="font-size: 12px;margin-bottom: 0;">Build Version V.1.1.0</p>
+            <p style="font-size: 12px;margin-bottom: 0;">Build Version V.2.1.0</p>
             <small>Copyright &copy; 2020 Vinayaka Trader Group. All Rights Reserved</small>
         </div>
         
@@ -107,6 +110,6 @@
       <p style="color: red;">use screen only in protrait mode</p>
     </div>
     <div>
-        <img src="assets/mobile_screen_01.png" style="width: 50%;height:50%;margin-left: 25%;">
+        <img src="https://lh3.googleusercontent.com/pw/ACtC-3fIE44SyVNsqS_OJK4Sg8lDntpTKmaXgkuzSYWOY3nucZNpSliTV9jRe9TopPJcWnUFRZAPH1cVipYpslk-6ySBcr8u8lEfv_LUFlYg8RlWMP0h4a5du1ICaTHjywjcUB2nrMgcm1RVA9HKlCV8DVb0=w1180-h663-no?authuser=0" style="width: 50%;height:50%;margin-left: 25%;">
     </div>
   </div>

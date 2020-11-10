@@ -31,6 +31,7 @@ export class OshopCartSummaryComponent implements OnInit {
               private ngRedux: NgRedux<RootStoreState>,
               private route: Router,
               private shoppingCart: ShoppingcartService) {
+    document.body.scrollTop = 0;
     this.orderForm = formBuilder.group({
       name: formBuilder.control('', [Validators.required,
                                   Validators.minLength(4),

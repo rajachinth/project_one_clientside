@@ -1,41 +1,49 @@
-<section class="section-top" id="homesection">
-    <div style="width: 100%; padding-top: 25%;">
-        <div  class="owl-carousel owl-theme" id="owl-home">
+<section style="min-height: 100vh; height: auto;">
+    <section class="section-top" id="homesection">
+        <div style="width: 100%; padding-top: 25%;">
+            <div  class="owl-carousel owl-theme" id="owl-home"> 
+                <div>
+                    <img class="owl-lazy" src="https://lh3.googleusercontent.com/pw/ACtC-3crK_aruQz9IA7fSWf-Ws56WXtTrAa2aEbEP53uJrp5cjfrfND2ALhgB1jYgCKA0lR5JzSj0W0HVE0pNxE4VnRtGIoAiAkW3yhYxrFSflM4frH68FOXzs48f2tTjGJxB3VDyRSr_RW_D2SoX0xJPejK=w1366-h456-no?authuser=0" class="d-block w-100" alt="...">
+                </div>
+                <div>
+                    <img class="owl-lazy" src="https://lh3.googleusercontent.com/pw/ACtC-3ffRNCV9MPTPZW6DqjzY10BS5-k4bjJD1xJDLHCKLVQj7dms6OHylmsittRus65DOAvmA7odSM8YYMGm0Dh_1h1F88bPdNeJqp9LFPLUoiAjoNcvwhNZXVCbPLRGtfTkbpWsLE34la4MAE1FtUTeok2=w1366-h456-no?authuser=0" class="d-block w-100" alt="...">
+                </div>
+                <div>   
+                    <img class="owl-lazy" src="https://lh3.googleusercontent.com/pw/ACtC-3cyCzRAciT9ZRSbq5ZOsDRcJx96Cm_Qdumm-qPAlJGBIpU9AYMHniPkxJRfB2FkB3DKvyv-1zKpk8rV37IEj2quH1QceRxGGCU3pgb51BYIDdii9iPAzE_TSgiFydxgyJvCzSWZxTJJx0b79Mm4D3qy=w1366-h456-no?authuser=0" class="d-block w-100" alt="...">
+                </div>
+                <div>
+                    <img class="owl-lazy" src="https://lh3.googleusercontent.com/pw/ACtC-3fZ0aozh1Jqrh9LbGBHt2knI-ULFw8M-ZXlV3KFrGBvEnFuxaBkDPtdLrkF16qJAEe8JGaycqbNWewgnkOwIdRzgu1Cdb2ulwkqJ2qBSyLPROsnLV5U_WNGQBxJI5RKg5YbdoIF-IdtWnqfIU-OA982=w1366-h456-no?authuser=0" class="d-block w-100" alt="...">
+                </div>
+                <div>
+                    <img class="owl-lazy" src="https://lh3.googleusercontent.com/pw/ACtC-3fXbu4AEHF3Fhle5tLy0Uo4lIxYzbg3JT0MGysFk-8CQkXG2ROjZ1_yvnpJ4EGOCYBwYBXZVyOMQMKRLewN1xbGL90Ar2wu2ONVm2IYOhbj6MYXTffU52-6_tDY7Sv-8zjd0HEn3NmDyPxU6wlrDqG2=w1366-h456-no?authuser=0" class="d-block w-100" alt="...">
+                </div>
+              </div>  
+              <video class="video_jqueryX1" autoplay loop style="max-width: 100%;" poster="https://lh3.googleusercontent.com/pw/ACtC-3ff5NkzEMjKUXHpR3b2x8TfrE4ypDic4cY_vEWw734yzc9XUEkNvC9UZ3oDvXRKp2sfM6ieSWzXEQahhn9XLJdkQElgCwNUkpEjx_9THp_cZWuZALAYbiGGpemLpedikvDsUjgj_N2dvEATP1m7PDjz=w1326-h663-no?authuser=0">
+                <source src="assets/home_screen.mp4" type="video/mp4">
+              </video >      
+        </div>    
+        <div class="header-title-content">
+            <h1>Vinayaka Trader Group <img style="width: 10%;border-radius: 50%; transform: translateY(-5px);" src="assets/android-icon-48x48.png"></h1>
             <div>
-                <img src="assets/home_screen_2.png" class="d-block w-100" alt="...">
+                <a *ngIf="!loginData" class="btn btn-login jquery-btn-login" routerLink="/login">Log In</a>
+                <a *ngIf="loginData" class="btn btn-login jquery-btn-login" routerLink="/home/user-queries">Queries</a>
+                <a class="btn btn-hotlist jquery-btn-login" routerLink="/home/about-us">About Us</a>
+                <a class="btn btn-hotlist" routerLink="/o-shop"><ion-icon name="home-outline"></ion-icon></a>
             </div>
-            <div>
-                <img src="assets/order_screen_poster_2.png" class="d-block w-100" alt="...">
-            </div>
-            <div>   
-                <img src="assets/sign_up_screen.png" class="d-block w-100" alt="...">
-            </div>
-          </div>  
-          <video class="video_jqueryX1" autoplay loop style="max-width: 100%;" poster="assets/home_screen.png">
-            <source src="assets/sign_in_screen_2.mp4" type="video/mp4">
-          </video >      
-    </div>    
-    <div class="header-title-content">
-        <h1>Vinayaka Trader Group <img style="width: 10%;border-radius: 50%;" src="assets/android-icon-48x48.png"></h1>
-        <div>
-            <a *ngIf="!loginData" class="btn btn-login jquery-btn-login" routerLink="/login">Log In</a>
-            <a *ngIf="loginData" class="btn btn-login jquery-btn-login" routerLink="/home/user-queries">Queries</a>
-            <a class="btn btn-hotlist jquery-btn-login" routerLink="/home/about-us">About Us</a>
-            <a class="btn btn-hotlist" routerLink="/o-shop"><ion-icon name="home-outline"></ion-icon></a>
         </div>
-    </div>
-</section>
-<section style="height: auto; margin-top: 0%; margin-bottom: 0%;">
-    <app-oshop-template-two></app-oshop-template-two>
-</section>
-<section style="height: auto;">
-    <app-oshop-template-one type='home'></app-oshop-template-one>
-</section>
-<div style="width:100%;height: auto; padding-top:5%;padding-bottom:5%;">
-    <img src="assets/order_screen_poster_2.png" style="width: 90%;margin-left: 5%;">
-</div> 
-<section style="height: auto;" class="section-three-main-content" style="padding-bottom: 50%;">
-    <p>It's simple to solve your queries <mat-icon style="font-size: 30px; transform: translateY(5px);">query_builder</mat-icon></p>
-    <app-o-shop-queries></app-o-shop-queries>
+    </section>
+    <section style="height: auto; margin-top: 0%; margin-bottom: 0%;">
+        <app-oshop-template-two></app-oshop-template-two>
+    </section>
+    <section style="height: auto;">
+        <app-oshop-template-one type='home'></app-oshop-template-one>
+    </section>
+    <div style="width:100%;height: auto; padding-top:5%;padding-bottom:5%;">
+        <img src="https://lh3.googleusercontent.com/pw/ACtC-3dG8tdN0FfAACq77Qq4ypsvJsx1Ljg2CTGiRwROfshrNqYQWus_Kos4-riLi5NCCMV-c0fPrWqFywD5N-xvakzqrn1xhz-p_RD5YjXFLbpqlTDv9lggdOmboCHlD7XnMDfR7eD8BNLyQE4T8sh2HXwY=w1366-h456-no?authuser=0" style="width: 90%;margin-left: 5%;">
+    </div> 
+    <section style="height: auto;" class="section-three-main-content" style="padding-bottom: 40%;">
+        <p>It's simple to solve your queries <mat-icon style="font-size: 30px; transform: translateY(5px);">query_builder</mat-icon></p>
+        <app-o-shop-queries></app-o-shop-queries>
+    </section>
 </section>
   

@@ -16,6 +16,7 @@ import { RootStoreState } from 'src/app/storemodule/redux/corestore';
 @Component({
   selector: 'oshop-dialog-menu',
   templateUrl: './oshop-dialog-menu.html',
+  styleUrls: ['./oshop-dialog-menu.css']
 })
 export class OshopDialogBox {
 
@@ -26,7 +27,7 @@ export class OshopDialogBox {
 
   constructor(public dialogRef: MatDialogRef<OshopDialogBox>,
               private ngRedux: NgRedux<RootStoreState>,
-              private userService: UserService) {}
+              private userService: UserService) { document.body.scrollTop = 0; }
 
   No_Login() {
     this.userService.getDefaultUserService()
@@ -91,6 +92,7 @@ export class OshopProductComponent implements OnInit {
               private dialog: MatDialog,
               private ngRedux: NgRedux<RootStoreState>,
               private productService: ProductformService) {
+    document.body.scrollTop = 0;
     this.isUserLogged = this.ngRedux.getState().loginstate.isUserLogged;
   }
 

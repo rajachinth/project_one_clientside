@@ -28,7 +28,7 @@ export class OshopCartComponent {
   constructor(private cartService: CartorderService,
               private shoppingCartService: ShoppingcartService,
               private authservice: AuthserviceService,
-              private ngRedux: NgRedux<RootStoreState>) { }
+              private ngRedux: NgRedux<RootStoreState>) { document.body.scrollTop = 0; }
 
   addToCart(itemList) {
     // console.log(itemList);

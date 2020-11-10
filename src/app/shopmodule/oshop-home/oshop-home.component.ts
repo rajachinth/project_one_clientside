@@ -33,7 +33,7 @@ export class OshopHomeComponent implements OnInit {
 
   constructor(private routerState: ActivatedRoute,
               private productService: ProductformService,
-              ) { }
+              ) { document.body.scrollTop = 0; }
 
   ngOnInit() {
        this.$ErrorCategory = of(false);

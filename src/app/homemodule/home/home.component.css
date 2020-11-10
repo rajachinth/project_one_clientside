@@ -1,6 +1,7 @@
-section.section-top {
+.section-top {
     /* background-image: -webkit-gradient(linear,left top, left bottom,from(rgba(0, 0, 0, 0.71)),to(rgba(0, 0, 0, 0.71))),url('src/assets/background_image.jpg');
     background-image: linear-gradient(rgba(0, 0, 0, 0.71),rgba(0, 0, 0, 0.71)),url('src/assets/background_image.jpg'); */
+    /* min-height: 100vh; */
     height: auto;
     padding-bottom: 10%;
     background-size: cover;

@@ -25,6 +25,7 @@ import { InvalidrouteComponent } from './common-components/invalidroute/invalidr
 import { OshopTemplateOneComponent } from './common-components/oshop-template-one/oshop-template-one.component';
 import { OshopTemplateTwoComponent } from './common-components/oshop-template-two/oshop-template-two.component';
 import { IonicModule } from '@ionic/angular';
+import { LogincheckService } from './services/logincheck.service';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { IonicModule } from '@ionic/angular';
     CartorderService,
     PreloadserviceService,
     AsyncUniquecheckService,
+    LogincheckService
   ],
   exports: [
     NgxPaginationModule,

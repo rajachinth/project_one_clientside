@@ -18,13 +18,16 @@ export class AppComponent implements OnInit, OnDestroy {
   @select(value => value.loginstate) $loginData: Observable<object>;
   @select(value => value.cartstate) $cartState: Observable<any>;
   subsciption: Subscription;
+  isUserLogged:Boolean = false;
 
   constructor(private authservice: AuthserviceService,
               private ngRedux: NgRedux<RootStoreState>,
               private route: Router,
               private routerState: ActivatedRoute,
               ) {
+    document.body.scrollTop = 0;
     ngRedux.subscribe(() => {
+      this.isUserLogged = ngRedux.getState().loginstate.isUserLogged;
         // console.log(ngRedux.getState());
     });
     // console.log(this.queryParamsValue);
@@ -53,6 +56,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.ngRedux.dispatch({type: LOGOUTUSER});
     this.ngRedux.dispatch({type: REMOVETOKEN});
     this.route.navigate(['/login']);
+    document.body.scrollTop = 0;
   }
   ngOnDestroy() {
     this.subsciption.unsubscribe();

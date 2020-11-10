@@ -13,6 +13,7 @@ a{
 .active
 {
     color: #007bff!important;
+    text-decoration: none;
 }
 /*Media Query*/
 

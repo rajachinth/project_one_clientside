@@ -15,6 +15,7 @@ export class OshopUserOrderPreviewComponent {
   orderID;
 
   constructor(ngRedux: NgRedux<RootStoreState>, private route: ActivatedRoute) {
+    document.body.scrollTop = 0;
     this.orderID = this.route.snapshot.paramMap.get('orderID');
   }
 

@@ -27,20 +27,23 @@
    <div id="blockDiv" style="width: 90%; margin-left: 5%; padding-top: 15px;">
        <div style="display: block; width: 100%; padding-top: 20px;">
             <h5>{{productDetails.product}}</h5>
-            <h5>{{productDetails.productID}}</h5>
+            <div style="display: inline-flex;">
+                <h5 style="font-family: 'Libre Barcode 128'; font-size: 50px;">{{productDetails.productID}}</h5>
+                <h5 style="font-size: 30px; margin-left: 10px;">({{productDetails.productID}})</h5>
+            </div>
        </div>
        <div style="width: 100%; padding-top: 1px;">
             <div style="display: flex; margin: 10px 0;">
-                <button id="jQueryB01" class="btn1 btn-secondary" (click)="addQuantity({quantity:'250ML',value:200})">
+                <button id="jQueryB01" class="btn1 btn-secondary" (click)="addQuantity({quantity:productDetails.varients.quantity,value:productDetails.varients.price})">
                     {{productDetails.varients.quantity}} : {{productDetails.varients.price | currency:'INR'}}</button>
                 <button id="blankButton" class="btn1 btn-secondary"
-                        (click)="blankButton()">500ML : {{400 | currency:'INR'}}</button>
+                        (click)="blankButton()">500ML/GM : NA</button>
             </div>
             <div style="display: flex; margin: 10px 0;">
                 <button id="blankButton" class="btn1 btn-secondary"
-                        (click)="blankButton()">750ML : {{600 | currency:'INR'}}</button>
+                        (click)="blankButton()">750ML/GM : NA</button>
                 <button id="blankButton" class="btn1 btn-secondary" 
-                        (click)="blankButton()">1000ML : {{800 | currency:'INR'}}</button>
+                        (click)="blankButton()">1000ML/GM : NA</button>
             </div>
             <div>
                 <p *ngIf="noProductVarient" style="color: red; text-align: center; font-size: 15px; font-weight: 500; margin-bottom: 0!important;">
@@ -155,5 +158,23 @@
     <h6>BUSINESS QUERIES</h6>
        <app-o-shop-queries></app-o-shop-queries>
    </div>
+   <div class="row-center content-screen" style="padding-top: 10%;padding-bottom: 20%;">
+        <div class="sub-content">
+            <ion-icon name="card-outline"></ion-icon>
+            <h6>
+                CONTACT-US
+            </h6>
+            <p class="info_p">
+                For any small, mid and large scale business queries, please reach to us
+            </p>
+            <div class="contact-form"> 
+                <p><span><mat-icon>business</mat-icon> </span> Exported by : Sri Vinayaka Traders</p>
+                <p><span><mat-icon>business_center</mat-icon> </span> Established : 1995 (25 Years)</p>
+                <p><span><mat-icon>location_on</mat-icon> </span>Location : Andhra Pradesh, India</p>
+                <p><span><mat-icon>phone</mat-icon> </span> +91 9000083255</p>
+                <p><span><mat-icon>contact_mail</mat-icon> </span> vinayakatradergroup@gmail.com</p>
+            </div>
+        </div>
+    </div>
    </div>
 </section>

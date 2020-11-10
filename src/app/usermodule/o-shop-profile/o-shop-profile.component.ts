@@ -24,7 +24,7 @@ export class OShopProfileComponent implements OnInit {
   showdata: Boolean;
   constructor(private shopserver: ShoppingcartService,
               private routeState: ActivatedRoute,
-              private route: Router) {}
+              private route: Router) { document.body.scrollTop = 0; }
   ngOnInit() {
     if (this.routeState.snapshot.queryParamMap.has('updateSuccess')) {
       this.showlabel = true;

@@ -1,7 +1,8 @@
 section
 {
+    min-height: 100vh;
     height: auto;
-    padding-bottom: 50%;
+    padding-bottom: 0%;
 }
 h4
 {
@@ -52,8 +53,8 @@ h6::after {
     background-color:#0a3d62;
     content: " ";
     margin-top: 5px;
-    width: 20%;
-    margin-left: 40%;
+    width: 30%;
+    margin-left: 35%;
 }
 
 img 
@@ -79,6 +80,34 @@ img
 {
     background-color: steelblue;
     border: 2px solid steelblue;
+}
+
+.contact-form
+{
+    background-color: aliceblue;
+    border-radius: 20px;
+    font-weight: 600;
+}
+.contact-form p, .info_p
+{
+    margin-bottom: 0;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 150%;
+    padding-top: 5px;
+    text-align: justify;
+}
+.sub-content {
+    padding: 1%;
+}
+.sub-content h3 {
+    text-align: center;
+}
+.sub-content ion-icon {
+    font-size: 200%;
+    color: #cf4310;
+    margin-left: 45%;
+    padding-bottom: 5px;
 }
 
 /*Media Queries*/

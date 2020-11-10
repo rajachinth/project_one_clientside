@@ -11,7 +11,7 @@ export class AccessdeniedRouteComponent implements OnInit, OnDestroy {
 
   public queryParam;
   subscription: Subscription;
-  constructor(private routeState: ActivatedRoute) { }
+  constructor(private routeState: ActivatedRoute) { document.body.scrollTop = 0; }
 
   ngOnInit() {
     this.subscription = this.routeState.queryParamMap

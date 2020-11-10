@@ -17,18 +17,25 @@ import { RootStoreState } from 'src/app/storemodule/redux/corestore';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  @select(value => value.logstate.show) $logState: Observable<object>;
+
+  @select(value => value.loginstate) $loginData: Observable<object>;
   $showProgress: Observable<boolean>;
   $showData: Observable<boolean>;
   decodedData: any;
   $errorStatus: Observable<string>;
+  isUserLogged: Boolean;
 
   @select(value => value.signupstate) $signupObject: Observable<object>;
 
   constructor(private userService: UserService,
               private authService: AuthserviceService,
               private ngRedux: NgRedux<RootStoreState>,
-              private asyncValidationService: AsyncUniquecheckService) {}
+              private asyncValidationService: AsyncUniquecheckService) {
+  document.body.scrollTop = 0;
+   this.ngRedux.subscribe(() => {
+    this.isUserLogged = this.ngRedux.getState().loginstate.isUserLogged;
+   });
+  }
 
   signupform = new FormGroup({
     username: new FormControl('', [

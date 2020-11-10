@@ -1,6 +1,7 @@
 section {
+    min-height: 100vh;
     height: auto;
-    padding-bottom: 15%;
+    padding-bottom: 0%;
 }
 
 .searchDiv {
@@ -30,10 +31,5 @@ section {
     {
         width: 70%;
         margin-right: 5%;
-    }
-    .c2
-    {
-        /* width: 20%;
-        margin-left: 5%; */
     }
 }

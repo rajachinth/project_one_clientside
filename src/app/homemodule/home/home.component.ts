@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   loginData: String;
 
-  constructor(private ngRedux: NgRedux<RootStoreState>) {  }
+  constructor(private ngRedux: NgRedux<RootStoreState>) { document.body.scrollTop = 0; }
 
   ngOnInit(): void {
      this.loginData = this.ngRedux.getState().loginstate.uniqueID;

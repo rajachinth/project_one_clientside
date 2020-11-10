@@ -35,7 +35,7 @@ export class SignInComponent implements OnInit, OnDestroy {
               private userService: UserService,
               private route: Router,
               private routerState: ActivatedRoute,
-              private shoppingService: ShoppingcartService) {}
+              private shoppingService: ShoppingcartService) { document.body.scrollTop = 0; }
 
   ngOnDestroy(): void {
     // throw new Error('Method not implemented.');

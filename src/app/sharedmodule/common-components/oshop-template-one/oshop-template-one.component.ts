@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class OshopTemplateOneComponent implements OnInit {
 
   @Input('type') type;
+  
   constructor() { }
 
   ngOnInit() {

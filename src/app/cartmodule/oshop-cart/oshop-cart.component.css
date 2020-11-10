@@ -2,7 +2,7 @@ section
 {
     height: auto;
     min-height: 100vh;
-    padding-bottom: 50%;
+    padding-bottom: 0%;
 }
 .main-body
 {
@@ -22,7 +22,18 @@ section
     border-radius: 100%;
 }
 
+.formgrouptwo
+{
+ text-align: center;
+ padding-top: 5%;
+ display: flex;
+ justify-content: space-evenly;
+}
 
+.mat-icon
+{
+    transform: translateY(5px);
+}
 /*Media Query*/
 
 @media(max-width:1000px)
@@ -46,7 +57,7 @@ section
     .btn 
     {
         font-size: 16px!important;
-        padding: 0px !important;
+        padding: 0px;
     }
     p
     {

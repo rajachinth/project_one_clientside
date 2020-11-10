@@ -27,7 +27,7 @@ export interface UserDetailsEdit {
 export class OshopProfileEditComponent implements OnInit  {
   constructor(private shopserver: ShoppingcartService,
               private route: Router,
-              private routerstate: ActivatedRoute) {}
+              private routerstate: ActivatedRoute) { document.body.scrollTop = 0; }
 
   @select(value => value.logstate.show) $logState: Observable<object>;
   userDetails = {

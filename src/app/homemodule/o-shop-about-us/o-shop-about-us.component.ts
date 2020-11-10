@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OShopAboutUsComponent implements OnInit {
 
-  constructor() { }
+  constructor() { document.body.scrollTop = 0; }
 
   ngOnInit() {
   }

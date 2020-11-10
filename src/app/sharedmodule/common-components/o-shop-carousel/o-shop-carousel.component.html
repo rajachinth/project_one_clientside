@@ -1,15 +1,15 @@
 <div>
     <div *ngIf="$showSpinnerProducts | async" class="d-flex justify-content-center" 
-         style="padding-top: 15%; margin-bottom: 10%;">
-        <div class="spinner-border" role="status">
+         style="padding-top: 0%; margin-bottom: 10%;">
+        <div class="spinner-grow text-dark" role="status">
           <span class="sr-only">Loading...</span>
         </div>
     </div>
 
     <div *ngIf="$ErrorProducts | async" style="font-size: 14px!important; 
                                             color: red;
-                                            font-weight: 600!important;
-                                            padding-top: 20%;
+                                            font-weight: 500!important;
+                                            padding-top: 0%;
                                             margin-bottom: 10%;
                                             display: block;">
         <p style="text-align: center;margin-bottom: 0!important;">{{$showErrorProducts | async }} <span><mat-icon style="color: red;">warning</mat-icon></span></p>
@@ -22,7 +22,7 @@
         <div class="card" *ngFor="let item of filterList">
             <div >
                 <img [src]="item.thumbnailImage" alt="item.productID" class="card-img-top" 
-                 style="width:100%;height:100px; object-fit: cover;">
+                 style="width:100%;height:100px; object-fit: fill;">
             </div>
             <div class="card-body">
                 <h6 class="card-title">{{item.product}}</h6>

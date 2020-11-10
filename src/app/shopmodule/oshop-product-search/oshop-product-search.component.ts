@@ -28,9 +28,7 @@ export class OshopProductSearchComponent implements OnInit, OnDestroy {
   $errorCheck: Observable<Boolean>;
 
   constructor(private routerState: ActivatedRoute,
-              private productService: ProductformService) {
-
-  }
+              private productService: ProductformService) { document.body.scrollTop = 0; }
 
   ngOnInit() {
 

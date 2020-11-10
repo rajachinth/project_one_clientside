@@ -22,7 +22,7 @@ export class OshopUserOrdersComponent implements OnInit {
 
   constructor(private ngRedux: NgRedux<RootStoreState>,
               private orderService: CartorderService,
-              private shoppingService: ShoppingcartService) { }
+              private shoppingService: ShoppingcartService) { document.body.scrollTop = 0; }
 
   ngOnInit() {
       this.ngRedux.dispatch({type: CLEARORDER});

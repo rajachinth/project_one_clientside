@@ -13,7 +13,6 @@
 html,body {
     background-color: white;
     color: black;
-    font-family: 'Dosis','sans-serif','fantasy';
     font-weight: 300;
     font-size: 20px;
     text-rendering: optimizeLegibility;
@@ -62,7 +61,7 @@ h3 {
 
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Roboto', "Helvetica Neue", sans-serif; }
 
 
 /*for screen size compatability*/

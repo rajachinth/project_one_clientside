@@ -1,6 +1,8 @@
-<section style="height: auto; padding-bottom: 50%;">
+<section style="height: auto; min-height: 100vh; padding-bottom: 0%;">
     <div style="width:100%;height: auto; padding-top: 25%;">
-        <video src="assets/login_screen.mp4" autoplay="autoplay" loop="loop" style="max-width: 100%;"></video>  
+        <video autoplay="autoplay" loop="loop" style="max-width: 100%;" poster="https://lh3.googleusercontent.com/pw/ACtC-3cZaeJjGVl6Cp3gHCwUtP8l3y2R4QuXCgmZdcfG-FEz9n2LTuitm2dqSxHwBEQXZGzekETKxhbdYCfIvBvhZZodq1GnHm9ml9SUS6bQrjHMKnGbfgnFfeyhXrgwCCkVB4n7xXcWM8Uwaxo-N7N8oEOf=w1366-h456-no?authuser=0">
+            <source src="assets/login_screen.mp4" type="video/mp4">
+        </video>  
     </div>
     <div class="drawer" *ngIf="($timeout | async)"> 
         <div class="d-block justify-content-center" style="padding-top: 80%; z-index: 900; text-align: center;">

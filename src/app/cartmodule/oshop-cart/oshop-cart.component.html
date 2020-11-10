@@ -1,7 +1,21 @@
 <section>
     <div class="main-body">
         <ng-template #template1>
-            <h5 style="width: 100%;font-size: 18px;text-align: center;">Load your cart to procced further</h5>
+            <h5 style="width: 100%;font-size: 18px;text-align: center;">Please load your cart to proceed further</h5>
+            <div class="formgrouptwo">
+                <button class="btn btn-secondary" 
+                        style="padding: 5px;"
+                        [routerLink]="['/o-shop']">Continue Shopping<span>
+                    <mat-icon>shopping_cart</mat-icon>
+                </span></button>
+                <button class="btn btn-secondary"
+                        style="padding: 5px;"
+                        [routerLink]="['/login']"
+                        >Login<span>
+                    <mat-icon>person</mat-icon>
+                </span>
+                </button>
+            </div>
         </ng-template>
         <div class="col-12" *ngIf="$cartState | async as cart">
             <ng-container *ngIf="cart.totalItemsCount > 0; else template1">
