@@ -41,7 +41,8 @@ export class OshopCartSummaryComponent implements OnInit {
                                   Validators.required,
                                   Validators.maxLength(50)]),
       pincode: formBuilder.control('', Validators.required),
-      mobile: formBuilder.control('', Validators.required) });
+      mobile: formBuilder.control('', Validators.required),
+      email: formBuilder.control('', [Validators.required,SyncValidationCheck.emailValidation]) });
    }
 
    ngOnInit() {

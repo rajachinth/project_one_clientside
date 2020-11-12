@@ -2,3 +2,7 @@
 {
     padding: 10px !important;
 }
+.mat-dialog-actions
+{
+    display: unset!important;
+}

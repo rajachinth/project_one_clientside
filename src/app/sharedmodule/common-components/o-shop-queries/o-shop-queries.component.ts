@@ -49,6 +49,7 @@ export class OShopQueriesComponent {
     pincode: new FormControl('', [
               Validators.required,
     ]),
+    email: new FormControl('', [Validators.required,SyncValidationCheck.emailValidation]),
     address: new FormControl('', [
               Validators.required,
               Validators.maxLength(40),

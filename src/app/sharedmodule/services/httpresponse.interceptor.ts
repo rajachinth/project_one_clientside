@@ -17,7 +17,7 @@ export class HttpResponseInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request)
                    .pipe(retry(2),
-                    timeout(7000),
+                    timeout(60000),
                     catchError((error: Response) => {
                       // console.log(error);
                       if (error.status == 400) {

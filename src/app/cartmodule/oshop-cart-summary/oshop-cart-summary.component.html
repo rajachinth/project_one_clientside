@@ -97,6 +97,20 @@
                               mobile number field mandated
                           </div>
                       </div>
+                <label for="pincode">Email</label>
+                  <input formControlName="email"
+                          id="email"
+                          class="form-control"
+                         type="text">
+                      <div class="alert alert-danger" *ngIf="orderForm.get('email').touched && orderForm.get('email').invalid">
+                          <div *ngIf="orderForm.get('email').errors.required"> 
+                              user should enter this field mandatorily
+                          </div>
+                          <div *ngIf="orderForm.get('email').errors.error">
+                            invalid email address
+                          </div>
+                      </div>
+                      <p style="margin-bottom: 0; padding: 0;color: blue; font-size: 16px!important;">cart details are mailed to this email ID</p>
               <div *ngIf="!($logState | async)" class="btnone">
                   <button style="padding: 5px;"
                           [disabled]="orderForm.invalid" 

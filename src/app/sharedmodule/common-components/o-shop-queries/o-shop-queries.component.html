@@ -59,6 +59,25 @@
             </div>
             <div class="block-one">
                 <div class="col-one">
+                    <label>Email</label>
+                </div>
+                <div class="col">
+                        <input  formControlName="email"
+                                placeholder="your email"
+                                type="text">
+                                <div *ngIf="queryForm.get('email').touched && queryForm.get('email').invalid">
+                                    <div class="alert alert-danger" *ngIf="queryForm.get('email').errors.error">
+                                        invalid email address
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="queryForm.get('email').errors.required"> 
+                                        user should enter this field mandatorily
+                                    </div>
+                                </div>
+                                <p style="margin-bottom: 0; color: blue; padding: 0;font-size: 12px!important;">query details are mailed to this email</p>
+                </div>
+            </div>
+            <div class="block-one">
+                <div class="col-one">
                     <label>Pincode</label>
                 </div>
                 <div class="col">
@@ -181,6 +200,8 @@
     <div *ngIf="$showData | async" style="width: 90%; margin-left: 5%; text-align: center;">
         <p style="text-align: center;">Enquiry form submited successfully <span><mat-icon 
                 style="color: green; font-size: 30px!important;transform: translateY(10px);">check_circle</mat-icon></span></p>
-        <!-- <button><a class="btn" routerLink="/home"><ion-icon name="home-outline"></ion-icon></a></button> -->
+        <p style="margin-bottom: 0;text-align:center; color: blue; padding: 0;font-size: 16px!important;">query details are mailed to your email <span><mat-icon 
+            style="color: green; font-size: 30px!important;transform: translateY(10px);">check_circle</mat-icon></span></p>
+                <!-- <button><a class="btn" routerLink="/home"><ion-icon name="home-outline"></ion-icon></a></button> -->
     </div>
 </section>

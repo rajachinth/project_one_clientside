@@ -11,7 +11,7 @@ import { ShoppingcartService } from 'src/app/sharedmodule/services/shoppingcart.
 import { UserService } from 'src/app/sharedmodule/services/userservice.service';
 import { ADDCART, ADDTOKENAUTH, DELETECART } from 'src/app/storemodule/redux/coreaction';
 import { RootStoreState } from 'src/app/storemodule/redux/corestore';
-
+import * as $ from 'jquery';
 
 @Component({
   selector: 'oshop-dialog-menu',
@@ -55,6 +55,7 @@ export class OshopDialogBox {
 })
 export class OshopProductComponent implements OnInit {
 
+
   itemDetails: ProductCard[] = [{
     isItemAdded: false,
     itemCount: 0
@@ -97,8 +98,23 @@ export class OshopProductComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productID = this.routestate.snapshot.paramMap.get('productID');
-    this.productService
+    this.routestate.paramMap.subscribe((paramData) => {
+      
+      $('#jqueryB05').trigger('click');
+
+      this.itemDetails = [{
+        isItemAdded: false,
+        itemCount: 0
+      }];
+      
+      this.selectedQuantity = false;
+      this.noProductVarient = false;
+      this.yesProductVarient = false;
+      this.productQuantity = null;
+      this.noVarientSelected = false;
+
+      this.productID = paramData.get('productID');
+      this.productService
             .getProductID_Details(this.productID)
             .subscribe( data => { this.productDetails = data[0];
               // console.log(this.productDetails);
@@ -156,6 +172,7 @@ export class OshopProductComponent implements OnInit {
                 this.showProductDetails = true;
                 this.showData = true;
               });
+    });
   }
 
   addQuantity(data) {
