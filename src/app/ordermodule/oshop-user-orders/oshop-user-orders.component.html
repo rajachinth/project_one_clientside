@@ -5,15 +5,15 @@
     <div class="row" *ngIf="!($logState | async)" >
         <div class="col-12" *ngIf="$orderList | async as orderlist">
             <div *ngIf="orderlist.orderList.length === 1; else showdata" style="width: 90%; margin-left: 5%;">
-                <h5>No Orders to Display</h5>
+                <h6>No Orders to Display</h6>
                 <div class="formgrouptwo">
                     <button class="btn btn-secondary" 
-                            style="padding: 5px;"
+                            style="padding: 5px; font-size: 16px;"
                             [routerLink]="['/o-shop']">Continue Shopping<span>
                         <mat-icon>shopping_cart</mat-icon>
                     </span></button>
                     <button class="btn btn-secondary"
-                            style="padding: 5px;"
+                            style="padding: 5px;font-size: 16px;"
                             [routerLink]="['/login']"
                             >Login<span>
                         <mat-icon>person</mat-icon>
