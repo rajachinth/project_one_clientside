@@ -46,7 +46,7 @@ export class ShoppingcartService implements OnDestroy {
   }
   addCartItems(cartList) {
     const decodeData = this.jwtService.decodeToken();
-    console.log(decodeData);
+    // console.log(decodeData);
 
     // console.log(decodeData.uniqueID);
     const obj = {userID: decodeData.uniqueID, productID: cartList.productID, product: cartList.product,

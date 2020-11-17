@@ -17,14 +17,14 @@ export class AuthserviceService {
     let accesToken;
     try { accesToken = localStorage.getItem('accessToken'); } catch (e) { console.log(e); }
     accesToken = (accesToken) ? accesToken : this.ngRedux.getState().tokenstate.accessToken;
-    console.log(this.ngRedux.getState().tokenstate.accessToken);
+    // console.log(this.ngRedux.getState().tokenstate.accessToken);
     if (!this.jwt.isTokenExpired(accesToken)) { return true; } else { return false; }
   }
   decodeToken() {
     let authToken;
     try {   authToken = localStorage.getItem('authToken'); } catch (e) { console.log(e); }
     authToken = (authToken) ? authToken : this.ngRedux.getState().tokenstate.authToken;
-    console.log(this.ngRedux.getState().tokenstate.accessToken);
+    // console.log(this.ngRedux.getState().tokenstate.accessToken);
     const DTOKEN = this.jwt.decodeToken(authToken);
     return DTOKEN;
   }

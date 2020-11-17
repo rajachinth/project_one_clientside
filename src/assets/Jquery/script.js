@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
     $('#jQueryB01').on('click',function(){
-        console.log('btn1');
         if($('#jQueryB01').hasClass('btn-secondary'))
         {
             $('#jQueryB01').removeClass('btn-secondary');
@@ -169,7 +168,6 @@ $(document).ready(function() {
   }); 
     $('.hidepassword').on('click',function(){
 
-        console.log('dfdfd')
            $(".jquery-password").attr("type","password");
     });
     $('.showpassword').on('click',function(){
@@ -178,7 +176,6 @@ $(document).ready(function() {
 
     });
     $('#jQueryB01').on('click',function(){
-        console.log('btn1');
         if($('#jQueryB01').hasClass('btn-secondary'))
         {
             $('#jQueryB01').removeClass('btn-secondary');

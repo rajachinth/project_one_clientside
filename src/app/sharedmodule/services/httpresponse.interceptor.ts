@@ -42,7 +42,6 @@ export class HttpResponseInterceptor implements HttpInterceptor {
                         localStorage.setItem('accessToken', reponseToken);
                        }catch (e) { console.log(e); }
                         // console.log(reponseToken);
-                        console.log('interceptor');
                         this.ngRedux.dispatch({type: ADDTOKENACCESS, data: reponseToken});
                         this.ngRedux.dispatch({type: ADDSECRET, data: {token: reponseToken}});
                     }},
